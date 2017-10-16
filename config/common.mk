@@ -59,6 +59,10 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/lmodroid/config/permissions/privapp-permissions-lmodroid.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-lmodroid.xml
 
+# LMODroid-specific broadcast actions whitelist
+PRODUCT_COPY_FILES += \
+    vendor/lmodroid/config/permissions/lmodroid-sysconfig.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/lmodroid-sysconfig.xml
+
 # lmodroid specific init rc file
 PRODUCT_COPY_FILES += \
     vendor/lmodroid/prebuilt/common/etc/init/init.custom-system_ext.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.custom-system_ext.rc
