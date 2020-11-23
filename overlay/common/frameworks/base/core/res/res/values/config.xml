@@ -196,4 +196,7 @@
     <!-- Flag indicating whether notification and ringtone volumes
          are controlled together (aliasing is true) or not. -->
     <bool name="config_alias_ring_notif_stream_types">false</bool>
+
+    <!-- Remote server that can provide NTP responses. -->
+    <string name="config_ntpServer" translatable="false">2.android.pool.ntp.org</string>
 </resources>
