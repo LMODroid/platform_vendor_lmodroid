@@ -26,6 +26,11 @@ endif
 PRODUCT_PACKAGES += \
     charger_res_images
 
+ifneq ($(WITH_LMODROID_CHARGER),false)
+PRODUCT_PACKAGES += \
+    lmodroid_charger_animation
+endif
+
 # Customizations
 PRODUCT_PACKAGES += \
     NavigationBarNoHintOverlay \
