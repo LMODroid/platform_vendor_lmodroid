@@ -21,6 +21,9 @@
             System
         -->
 
+        <!-- Don't pin camera app to save memory -->
+        <item>runtime_native_boot/pin_camera=false</item>
+
         <!-- Use new privacy indicators for location -->
         <item>privacy/location_indicators_enabled=true</item>
         <!-- Allow users to disable location indicators in Developer Options -->
