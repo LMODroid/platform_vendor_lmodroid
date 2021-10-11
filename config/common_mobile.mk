@@ -9,25 +9,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.notification_sound=Argon.ogg \
     ro.config.alarm_alert=Hassium.ogg
 
-# AOSP packages
-PRODUCT_PACKAGES += \
-    ExactCalculator \
-    Exchange2
-
-# Accents
-PRODUCT_PACKAGES += \
-    LMODroidBlackTheme \
-    LMODroidBlackAccent \
-    LMODroidBlueAccent \
-    LMODroidBrownAccent \
-    LMODroidCyanAccent \
-    LMODroidGreenAccent \
-    LMODroidOrangeAccent \
-    LMODroidPinkAccent \
-    LMODroidPurpleAccent \
-    LMODroidRedAccent \
-    LMODroidYellowAccent
-
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
