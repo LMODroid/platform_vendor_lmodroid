@@ -258,6 +258,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat64.enabled=true
 endif
 
+# ART
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    pm.dexopt.boot=verify \
+    pm.dexopt.first-boot=verify \
+    pm.dexopt.install=speed-profile \
+    pm.dexopt.bg-dexopt=everything
+
+ifneq ($(AB_OTA_PARTITIONS),)
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    pm.dexopt.ab-ota=verify
+endif
+
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     dalvik.vm.systemuicompilerfilter=speed
 
