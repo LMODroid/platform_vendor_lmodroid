@@ -108,7 +108,8 @@ PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
 
 PRODUCT_PACKAGES += \
     Jellyfish \
-    MusicPlayerGO
+    MusicPlayerGO \
+    VLC
 endif
 
 # SetupWizard
@@ -122,8 +123,7 @@ PRODUCT_PACKAGES += \
     GameSpace \
     LMOCamera \
     Recorder \
-    Seedvault \
-    VLC
+    Seedvault
 
 # Themes
 PRODUCT_PACKAGES += \
