@@ -215,8 +215,8 @@ PRODUCT_PACKAGES += \
     NetworkStackOverlay
 
 # Translations
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/crowdin/overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/crowdin/overlay
+#PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/crowdin/overlay
+#PRODUCT_PACKAGE_OVERLAYS += vendor/crowdin/overlay
 
 -include vendor/lmodroid-priv/keys/keys.mk
 
