@@ -156,6 +156,17 @@ def is_in_manifest(projectpath):
         if localpath.get("path") == projectpath:
             return True
 
+    # Checkout removed projects
+    removed_projects = []
+    try:
+        lm = ElementTree.parse(".repo/manifests/snippets/remove.xml")
+        lm = lm.getroot()
+    except:
+        lm = ElementTree.Element("manifest")
+
+    for localpath in lm.findall("remove-project"):
+        removed_projects.append(localpath.get("name"))
+
     # Search in main manifest, too
     try:
         lm = ElementTree.parse(get_manifest_path())
@@ -164,7 +175,7 @@ def is_in_manifest(projectpath):
         lm = ElementTree.Element("manifest")
 
     for localpath in lm.findall("project"):
-        if localpath.get("path") == projectpath:
+        if localpath.get("path") == projectpath and localpath.get("name") not in removed_projects:
             return True
 
     # ... and don't forget the lmodroid snippet
@@ -175,7 +186,7 @@ def is_in_manifest(projectpath):
         lm = ElementTree.Element("manifest")
 
     for localpath in lm.findall("project"):
-        if localpath.get("path") == projectpath:
+        if localpath.get("path") == projectpath and localpath.get("name") not in removed_projects:
             return True
 
     return False
