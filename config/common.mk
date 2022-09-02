@@ -136,7 +136,7 @@ PRODUCT_PACKAGES += \
     TouchGestures
 
 # TTS
-$(call inherit-product, external/svox/svox_tts.mk)
+#$(call inherit-product, external/svox/svox_tts.mk)
 
 # Config
 PRODUCT_PACKAGES += \
