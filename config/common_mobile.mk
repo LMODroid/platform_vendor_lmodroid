@@ -28,7 +28,8 @@ PRODUCT_PACKAGES += \
 
 ifneq ($(WITH_LMODROID_CHARGER),false)
 PRODUCT_PACKAGES += \
-    lmodroid_charger_animation
+    lmodroid_charger_animation \
+    lmodroid_charger_animation_vendor
 endif
 
 # Customizations
