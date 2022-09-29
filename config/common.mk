@@ -122,6 +122,7 @@ PRODUCT_PACKAGES += \
     ExactCalculator \
     GameSpace \
     LMOCamera \
+    ParallelSpace \
     Recorder \
     Seedvault
 
