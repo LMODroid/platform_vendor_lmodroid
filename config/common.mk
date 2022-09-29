@@ -123,6 +123,7 @@ PRODUCT_PACKAGES += \
     GameSpace \
     LMOCamera \
     ParallelSpace \
+    PdfViewer \
     Recorder \
     Seedvault
 
