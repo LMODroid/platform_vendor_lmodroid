@@ -140,6 +140,12 @@ PRODUCT_PACKAGES += \
 # TTS
 $(call inherit-product, external/svox/svox_tts.mk)
 
+# DesktopMode
+PRODUCT_PACKAGES += \
+    DesktopMode
+
+$(call inherit-product, packages/services/VncFlinger/product.mk)
+
 # Config
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig
