@@ -110,6 +110,14 @@ PRODUCT_PACKAGES += \
     Jellyfish \
     MusicPlayerGO \
     VLC
+
+# F-Droid
+ifneq ($(WITH_GMS),true)
+PRODUCT_PACKAGES += \
+    F-Droid \
+    F-DroidPrivilegedExtension
+
+endif
 endif
 
 # SetupWizard
