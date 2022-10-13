@@ -121,6 +121,15 @@ PRODUCT_PACKAGES += \
 #    VLC
 endif
 
+# F-Droid
+ifneq ($(WITH_GMS),true)
+PRODUCT_PACKAGES += \
+    F-Droid \
+    F-DroidPrivilegedExtension
+
+endif
+
+
 # SetupWizard
 PRODUCT_PACKAGES += \
     LMOSetupWizard
