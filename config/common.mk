@@ -101,6 +101,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/lmodroid/prebuilt/common/etc/init/init.lmodroid-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.lmodroid-updater.rc
 
+# Panic
+PRODUCT_PACKAGES += \
+    Ripple
+
 # Prebuilt apps
 ifneq ($(TARGET_WITHOUT_PREBUILT_APPS),true)
 
