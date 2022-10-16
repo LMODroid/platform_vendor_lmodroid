@@ -140,15 +140,6 @@ PRODUCT_PACKAGES += \
 # TTS
 $(call inherit-product, external/svox/svox_tts.mk)
 
-# DesktopMode
-PRODUCT_PACKAGES += \
-    DesktopMode
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.freeform_window_management.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.freeform_window_management.xml
-
-$(call inherit-product, packages/services/VncFlinger/product.mk)
-
 # Config
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig
