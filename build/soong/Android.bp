@@ -370,6 +370,24 @@ egl_display_array {
     },
 }
 
+// Mediatek specific config modules
+soong_config_module_type {
+    name: "mtk_codecs",
+    module_type: "cc_defaults",
+    config_namespace: "lmodroidMediatekVars",
+    bool_variables: ["uses_mtk_codecs"],
+    properties: ["cppflags"],
+}
+
+mtk_codecs {
+    name: "mtk_codecs_defaults",
+    soong_config_variables: {
+        uses_mtk_codecs: {
+            cppflags: ["-DHAS_MTK_CODECS"],
+        },
+    },
+}
+
 // NVIDIA specific config modules
 soong_config_module_type {
     name: "nvidia_enhancements",
