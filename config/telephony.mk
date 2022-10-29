@@ -9,6 +9,7 @@ PRODUCT_PACKAGES += \
 # Telephony packages
 PRODUCT_PACKAGES += \
     messaging \
+    OpenEUICC \
     Stk
 
 # Default ringtone
