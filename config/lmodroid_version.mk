@@ -32,11 +32,11 @@ endif
 DATE_YEAR := $(shell date -u +%Y)
 DATE_MONTH := $(shell date -u +%m)
 DATE_DAY := $(shell date -u +%d)
-DATE_HOUR := $(shell date -u +%H)
-DATE_MINUTE := $(shell date -u +%M)
 ifeq ($(filter UNOFFICIAL,$(LMODROID_BUILDTYPE)),)
     BUILD_DATE := $(DATE_YEAR)$(DATE_MONTH)$(DATE_DAY)
 else
+    DATE_HOUR := $(shell date -u +%H)
+    DATE_MINUTE := $(shell date -u +%M)
     BUILD_DATE := $(DATE_YEAR)$(DATE_MONTH)$(DATE_DAY)-$(DATE_HOUR)$(DATE_MINUTE)
 endif
 
