@@ -98,6 +98,10 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/lib%/libtensorflowlite_jni.so
 endif
 
+# FaceUnlock - Settings RRO
+PRODUCT_PACKAGES += \
+    FaceUnlockSettingsOverlay
+
 # Media
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     media.recorder.show_manufacturer_and_model=true
