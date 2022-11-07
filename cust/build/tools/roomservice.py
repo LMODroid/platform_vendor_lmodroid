@@ -77,7 +77,10 @@ if not depsonly:
     gitlmoreq = urllib.request.Request(git_req_url)
     add_auth(gitlmoreq)
     try:
-        total_pages = urllib.request.urlopen(gitlmoreq).getheader('X-Total-Pages')
+        if hasattr(urllib.request.urlopen(gitlmoreq), 'getheader'):
+            total_pages = urllib.request.urlopen(gitlmoreq).getheader('X-Total-Pages')
+        else:
+            total_pages = urllib.request.urlopen(gitlmoreq).headers.get('X-Total-Pages')
     except urllib.error.URLError:
         print("Failed to get devices repos")
         sys.exit(1)
