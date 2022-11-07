@@ -72,19 +72,30 @@ def add_auth(gitlmoreq):
         gitlmoreq.add_header("Authorization","Bearer %s" % gitlmoauth)
 
 if not depsonly:
-    gitlmoreq = urllib.request.Request("https://git.libremobileos.com/api/v4/groups/LMODroid-Devices")
+    git_req_url = "https://git.libremobileos.com/api/v4/groups/LMODroid-Devices/projects?per_page=100"
+    total_pages = 0
+    gitlmoreq = urllib.request.Request(git_req_url)
     add_auth(gitlmoreq)
     try:
-        result = json.loads(urllib.request.urlopen(gitlmoreq).read().decode())
+        total_pages = urllib.request.urlopen(gitlmoreq).getheader('X-Total-Pages')
     except urllib.error.URLError:
         print("Failed to get devices repos")
         sys.exit(1)
-    except ValueError:
-        print("Failed to parse return data from LMO git")
-        sys.exit(1)
-    for project in result.get('projects', []):
-        if device in project["name"]:
-            repositories.append(project)
+
+    for page in range(1, int(total_pages)+1):
+        gitlmoreq = urllib.request.Request(git_req_url + "&page=" + str(page))
+        add_auth(gitlmoreq)
+        try:
+            result = json.loads(urllib.request.urlopen(gitlmoreq).read().decode())
+        except urllib.error.URLError:
+            print("Failed to get devices repos")
+            sys.exit(1)
+        except ValueError:
+            print("Failed to parse return data from LMO git")
+            sys.exit(1)
+        for project in result:
+            if device in project["name"]:
+                repositories.append(project)
 
 local_manifests = r'.repo/local_manifests'
 if not os.path.exists(local_manifests): os.makedirs(local_manifests)
