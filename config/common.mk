@@ -96,6 +96,10 @@ TARGET_SCREEN_HEIGHT ?= 1920
 PRODUCT_PACKAGES += \
     bootanimation.zip
 
+# Backgrounds
+PRODUCT_PACKAGES += \
+    Backgrounds
+
 # Updater
 PRODUCT_PACKAGES += \
     Updater
