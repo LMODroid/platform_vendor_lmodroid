@@ -1,6 +1,9 @@
 # Inherit common mobile LMODroid stuff
 $(call inherit-product, vendor/lmodroid/config/common.mk)
 
+# Include AOSP audio files
+include vendor/lmodroid/config/aosp_audio.mk
+
 # Default notification/alarm sounds
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.notification_sound=Argon.ogg \
