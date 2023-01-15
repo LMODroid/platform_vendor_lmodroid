@@ -129,12 +129,6 @@ PRODUCT_PACKAGES += \
     Recorder \
     Seedvault
 
-# Themes
-PRODUCT_PACKAGES += \
-    LMODroidBlackTheme \
-    LMODroidThemesStub \
-    ThemePicker
-
 # TouchGestures
 PRODUCT_PACKAGES += \
     TouchGestures
