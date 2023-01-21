@@ -21,7 +21,10 @@ Additional functions:
 - sort-blobs-list: Sort proprietary-files.txt sections with LC_ALL=C.
 - installboot:     Installs a boot.img to the connected device.
 - installrecovery: Installs a recovery.img to the connected device.
+
 EOF
+
+__customer_help
 }
 
 function mk_timer()
@@ -932,3 +935,22 @@ function fixup_common_out_dir() {
         mkdir -p ${common_out_dir}
     fi
 }
+
+if [ -z "$CUSTOMER_VENDOR_DIR" ]; then
+. vendor/lmodroid/cust.sh
+fi
+export CUSTOMER_VENDOR_DIR
+. $CUSTOMER_VENDOR_DIR/build/envsetup.sh
+
+# https://stackoverflow.com/a/13864829
+if [ ! -z ${CUSTOMER_BUILD_PREFIX+x} ]; then
+__customer_check_product() {
+    if [ -z "$CUSTOMER_BUILD_PREFIX" ]; then
+        echo -n $1
+    else
+        if (echo -n $1 | grep -q -e "^${CUSTOMER_BUILD_PREFIX}"); then
+            echo -n $1 | sed -e "s/^${CUSTOMER_BUILD_PREFIX}//g"
+        fi
+    fi
+}
+fi

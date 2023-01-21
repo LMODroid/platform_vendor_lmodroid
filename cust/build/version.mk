@@ -13,7 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# LMODroid versions
+# Customer version settings
+
+# Customer version variable name
+# Default: LMODROID_BUILD_NAME
+CUSTOMER_VERSION_VAR_NAME := LMODROID_BUILD_NAME
+
+# Customer specific code below
 
 # Set LMODROID_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
 ifndef LMODROID_BUILDTYPE

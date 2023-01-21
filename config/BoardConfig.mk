@@ -5,3 +5,5 @@ include vendor/lmodroid/config/BoardConfigQcom.mk
 endif
 
 include vendor/lmodroid/config/BoardConfigSoong.mk
+
+include $(CUSTOMER_VENDOR_DIR)/build/BoardConfig.mk

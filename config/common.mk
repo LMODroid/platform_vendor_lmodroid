@@ -233,8 +233,11 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/crowdin/overlay
 
 -include vendor/lmodroid-priv/keys/keys.mk
 
-# LMODroid versions
- include vendor/lmodroid/config/lmodroid_version.mk
+include $(CUSTOMER_VENDOR_DIR)/build/version.mk
+LMODROID_BUILD_NAME := $($(CUSTOMER_VERSION_VAR_NAME))
+SOONG_BANNER_FAKE_NAME_LMODROID_BUILD_NAME := $(CUSTOMER_VERSION_VAR_NAME)
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/lmodroid/config/partner_gms.mk
+
+include $(CUSTOMER_VENDOR_DIR)/build/config.mk
