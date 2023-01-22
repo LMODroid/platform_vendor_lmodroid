@@ -74,6 +74,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.control_privapp_permissions=enforce
 
+# Support many users/work profiles
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.sys.max_profiles=16 \
+    fw.max_users=32
+
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 
