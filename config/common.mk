@@ -125,7 +125,6 @@ PRODUCT_PACKAGES += \
     Etar \
     ExactCalculator \
     GameSpace \
-    LMOCamera \
     ParallelSpace \
     PdfViewer \
     Recorder \
