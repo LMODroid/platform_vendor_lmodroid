@@ -936,11 +936,16 @@ function fixup_common_out_dir() {
     fi
 }
 
+for i in vendor/*/build/envsetup.sh; do
+if [ "$i" != "vendor/lmodroid/build/envsetup.sh" ]; then
+. "$i"
+fi
+done
 if [ -z "$CUSTOMER_VENDOR_DIR" ]; then
-. vendor/lmodroid/cust.sh
+. vendor/lmodroid/cust/build/envsetup.sh
 fi
 export CUSTOMER_VENDOR_DIR
-. $CUSTOMER_VENDOR_DIR/build/envsetup.sh
+. $CUSTOMER_VENDOR_DIR/build/cust.sh
 
 # https://stackoverflow.com/a/13864829
 if [ ! -z ${CUSTOMER_BUILD_PREFIX+x} ]; then

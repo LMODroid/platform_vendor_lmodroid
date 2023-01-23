@@ -1,16 +1,10 @@
-# Additional help function
-# Print extra information when user types "hmm"
-__customer_help() {
-    cat <<EOF
-Additional functions:
+#
+# =================================
+# DO NOT ADD ADDITIONAL DEFINITIONS
+# =================================
+#
 
-EOF
-}
-
-# Customer build prefix
-# If undefined, customer can provide custom __customer_check_product
-# If empty, prefix is disabled
-# Advantage: support multiple configurations in one build.
-# Disadvantage: does not support CTS test.
-# Default: lmodroid_
-export CUSTOMER_BUILD_PREFIX=lmodroid_
+# Customer vendor dir.
+# Used by build system, contains roomservice, envsetup and others
+# Default: vendor/lmodroid/cust
+CUSTOMER_VENDOR_DIR=vendor/lmodroid/cust
