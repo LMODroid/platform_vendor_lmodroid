@@ -127,6 +127,7 @@ PRODUCT_PACKAGES += \
 
 # System apps
 PRODUCT_PACKAGES += \
+    Aperture \
     Etar \
     ExactCalculator \
     GameSpace \
