@@ -11,11 +11,11 @@
     <!-- List of fallback URLs to use for detecting captive portals. -->
     <string-array name="default_captive_portal_fallback_urls" translatable="false">
         <item>http://connectivity-check.ubuntu.com</item>
-        <item>http://grapheneos.org/generate_204</item>
+        <item>http://captiveportal.kuketz.de</item>
     </string-array>
     <string-array name="config_captive_portal_fallback_urls" translatable="false">
         <item>http://connectivity-check.ubuntu.com</item>
-        <item>http://grapheneos.org/generate_204</item>
+        <item>http://captiveportal.kuketz.de</item>
     </string-array>
 
 </resources>
