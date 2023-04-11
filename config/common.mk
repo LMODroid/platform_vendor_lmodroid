@@ -48,6 +48,9 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.ota.allow_downgrade=true
 endif
+else
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    lmodroid.updater.allow_major_update=true
 endif
 
 # Some permissions
