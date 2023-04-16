@@ -27,7 +27,11 @@ endif
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/lmodroid/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/lmodroid/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions
+    vendor/lmodroid/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/lmodroid/prebuilt/common/bin/50-lmodroid.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-lmodroid.sh
+
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/addon.d/50-lmodroid.sh
 
 ifneq ($(strip $(AB_OTA_PARTITIONS) $(AB_OTA_POSTINSTALL_CONFIG)),)
 PRODUCT_COPY_FILES += \
