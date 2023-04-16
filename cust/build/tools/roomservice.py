@@ -225,9 +225,13 @@ def add_to_manifest(repositories, fallback_branch = None):
         else:
             repo_remote='lmodroid'
 
+        repo_attrib = { "path": repo_target,
+            "remote": repo_remote, "name": repo_name }
+        if repo_remote == 'lineage':
+            repo_attrib["revision"] = "lineage-20"
+
         print('Adding dependency: %s' % repo_name)
-        project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": repo_remote, "name": repo_name })
+        project = ElementTree.Element("project", attrib = repo_attrib)
 
         if 'branch' in repository:
             project.set('revision',repository['branch'])
