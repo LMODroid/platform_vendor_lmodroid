@@ -289,6 +289,7 @@ PRODUCT_PACKAGE_OVERLAYS += \
     vendor/lmodroid/overlay/no-rro
 
 PRODUCT_PACKAGES += \
+    DocumentsUIOverlay \
     NetworkStackOverlay
 
 # Translations
