@@ -46,7 +46,8 @@ PRODUCT_PACKAGES += \
     IconShapeSquircleOverlay \
     IconShapeTaperedRectOverlay \
     IconShapeTeardropOverlay \
-    IconShapeVesselOverlay
+    IconShapeVesselOverlay \
+    NavigationBarMode2ButtonOverlay
 
 # DesktopMode
 PRODUCT_PACKAGES += \
