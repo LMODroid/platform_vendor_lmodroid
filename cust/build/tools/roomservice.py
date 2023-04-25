@@ -254,6 +254,7 @@ def add_to_manifest(repositories, fallback_branch = None):
 def fetch_dependencies(repo_path, fallback_branch = None):
     print('Looking for dependencies in %s' % repo_path)
     dependencies_path = repo_path + '/lmodroid.dependencies'
+    los_dependencies_path = repo_path + '/lineage.dependencies'
     syncable_repos = []
     verify_repos = []
 
@@ -263,6 +264,28 @@ def fetch_dependencies(repo_path, fallback_branch = None):
         fetch_list = []
 
         for dependency in dependencies:
+            if not is_in_manifest(dependency['target_path']):
+                fetch_list.append(dependency)
+                syncable_repos.append(dependency['target_path'])
+                verify_repos.append(dependency['target_path'])
+            else:
+                verify_repos.append(dependency['target_path'])
+
+            if not os.path.isdir(dependency['target_path']):
+                syncable_repos.append(dependency['target_path'])
+
+        dependencies_file.close()
+
+        if len(fetch_list) > 0:
+            print('Adding dependencies to manifest')
+            add_to_manifest(fetch_list, fallback_branch)
+    elif os.path.exists(los_dependencies_path):
+        dependencies_file = open(los_dependencies_path, 'r')
+        dependencies = json.loads(dependencies_file.read())
+        fetch_list = []
+
+        for dependency in dependencies:
+            dependency["remote"] = "lineage"
             if not is_in_manifest(dependency['target_path']):
                 fetch_list.append(dependency)
                 syncable_repos.append(dependency['target_path'])
