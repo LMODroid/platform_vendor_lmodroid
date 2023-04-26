@@ -169,17 +169,13 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/app/LMOFaceUnlock/LMOFaceUnlock.apk \
-    system/app/LMOFaceUnlock/lib/arm64/libtensorflowlite_jni.so \
-    system/app/LMOFaceUnlock/lib/arm/libtensorflowlite_jni.so \
-    system/app/LMOFaceUnlock/lib/x86/libtensorflowlite_jni.so \
-    system/app/LMOFaceUnlock/lib/x86_64/libtensorflowlite_jni.so \
+    system/app/LMOFaceUnlock/lib/%/libtensorflowlite_jni.so \
     system/etc/face/detect-class1.tflite \
     system/etc/face/detect-class1.txt \
     system/etc/face/mobile_face_net.tflite \
     system/etc/face/mobile_face_net.txt \
     system/etc/permissions/android.hardware.biometrics.face.xml \
-    system/lib64/libtensorflowlite_jni.so \
-    system/lib/libtensorflowlite_jni.so
+    system/lib%/libtensorflowlite_jni.so
 endif
 
 # Config
