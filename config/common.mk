@@ -125,7 +125,6 @@ ifneq ($(TARGET_WITHOUT_PREBUILT_APPS),true)
 PRODUCT_PACKAGES += \
     Jellyfish \
     MusicPlayerGO
-#    VLC
 endif
 
 # F-Droid
