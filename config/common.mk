@@ -3,6 +3,8 @@
 
 PRODUCT_BRAND ?= LMODroid
 
+include $(CUSTOMER_VENDOR_DIR)/build/config.mk
+
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
@@ -284,5 +286,3 @@ SOONG_BANNER_FAKE_NAME_LMODROID_BUILD_NAME := $(CUSTOMER_VERSION_VAR_NAME)
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/lmodroid/config/partner_gms.mk
-
-include $(CUSTOMER_VENDOR_DIR)/build/config.mk
