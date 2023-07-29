@@ -148,7 +148,6 @@ PRODUCT_PACKAGES += \
 
 # System apps
 PRODUCT_PACKAGES += \
-    Aperture \
     Etar \
     ExactCalculator \
     GameSpace \
@@ -156,6 +155,11 @@ PRODUCT_PACKAGES += \
     PdfViewer \
     Recorder \
     Seedvault
+
+ifneq ($(PRODUCT_NO_CAMERA),true)
+PRODUCT_PACKAGES += \
+    Aperture
+endif
 
 # TouchGestures
 PRODUCT_PACKAGES += \
