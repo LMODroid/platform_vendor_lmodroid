@@ -291,6 +291,10 @@ CUSTOM_LOCALES += \
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/crowdin/overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/crowdin/overlay
 
+# Udfps Animations
+PRODUCT_PACKAGES += \
+    UdfpsAnimations
+
 -include vendor/lmodroid-priv/keys/keys.mk
 
 include $(CUSTOMER_VENDOR_DIR)/build/version.mk
