@@ -77,7 +77,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # Support many users/work profiles
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    persist.sys.max_profiles=16 \
+    persist.sys.max_profiles?=16 \
     fw.max_users=32
 
 # Do not include art debug targets
