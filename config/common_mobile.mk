@@ -87,6 +87,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/app/LMOFaceUnlock/LMOFaceUnlock.apk \
+    system/app/LMOFaceUnlock/oat/%/LMOFaceUnlock.odex \
+    system/app/LMOFaceUnlock/oat/%/LMOFaceUnlock.vdex \
     system/app/LMOFaceUnlock/lib/%/libtensorflowlite_jni.so \
     system/etc/face/detect-class1.tflite \
     system/etc/face/detect-class1.txt \
