@@ -900,7 +900,7 @@ alias cmkap='dopush cmka'
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/lmodroid/build/tools/repopick.py $@
+    $T/vendor/lmodroid/build/tools/repopick.py "$@"
 }
 
 function sort-blobs-list() {
