@@ -137,6 +137,10 @@ PRODUCT_PACKAGES += \
 
 endif
 
+# LMO Framework
+PRODUCT_PACKAGES += \
+    LMOManifest \
+    framework-lmodroid
 
 # SetupWizard
 PRODUCT_PACKAGES += \
