@@ -143,8 +143,10 @@ PRODUCT_PACKAGES += \
     framework-lmodroid
 
 # SetupWizard
+ifeq ($(PRODUCT_IS_AUTOMOTIVE),)
 PRODUCT_PACKAGES += \
     LMOSetupWizard
+endif
 
 # System apps
 PRODUCT_PACKAGES += \
