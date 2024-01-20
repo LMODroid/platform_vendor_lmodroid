@@ -96,6 +96,16 @@ ifneq ($(TARGET_DISABLE_EPPE),true)
 $(call enforce-product-packages-exist-internal,$(wildcard device/*/$(LMODROID_BUILD)/$(TARGET_PRODUCT).mk),product_manifest.xml rild Calendar Launcher3 Launcher3Go Launcher3QuickStep Launcher3QuickStepGo android.hidl.memory@1.0-impl.vendor vndk_apex_snapshot_package com.android.art)
 endif
 
+ifeq ($(PRODUCT_IS_ATV),)
+# Include AOSP audio files
+include vendor/lmodroid/config/aosp_audio.mk
+
+# Default notification/alarm sounds
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.config.notification_sound?=Argon.ogg \
+    ro.config.alarm_alert?=Hassium.ogg
+endif
+
 # Bootanimation
 TARGET_SCREEN_WIDTH ?= 1080
 TARGET_SCREEN_HEIGHT ?= 1920
@@ -125,8 +135,13 @@ PRODUCT_PACKAGES += \
 ifneq ($(TARGET_WITHOUT_PREBUILT_APPS),true)
 
 PRODUCT_PACKAGES += \
-    Gramophone \
+    Gramophone
+
+ifeq ($(PRODUCT_IS_ATV),)
+PRODUCT_PACKAGES += \
     Jellyfish
+endif
+
 endif
 
 # F-Droid
@@ -151,7 +166,6 @@ endif
 # System apps
 PRODUCT_PACKAGES += \
     Etar \
-    ExactCalculator \
     GameSpace \
     ParallelSpace \
     PdfViewer \
@@ -161,6 +175,11 @@ PRODUCT_PACKAGES += \
 ifneq ($(PRODUCT_NO_CAMERA),true)
 PRODUCT_PACKAGES += \
     Aperture
+endif
+
+ifeq ($(PRODUCT_IS_ATV),)
+PRODUCT_PACKAGES += \
+    ExactCalculator
 endif
 
 # TouchGestures
