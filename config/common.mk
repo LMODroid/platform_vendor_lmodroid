@@ -272,6 +272,7 @@ endif
 
 # SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
+    CarSystemUI \
     SystemUI
 
 PRODUCT_PACKAGES += \
