@@ -125,8 +125,8 @@ PRODUCT_PACKAGES += \
 ifneq ($(TARGET_WITHOUT_PREBUILT_APPS),true)
 
 PRODUCT_PACKAGES += \
-    Jellyfish \
-    MusicPlayerGO
+    Gramophone \
+    Jellyfish
 endif
 
 # F-Droid
