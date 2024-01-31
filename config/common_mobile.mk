@@ -2,6 +2,9 @@
 $(call inherit-product, vendor/lmodroid/config/common.mk)
 
 # Apps
+PRODUCT_PACKAGES += \
+   Glimpse
+
 ifeq ($(PRODUCT_TYPE), go)
 PRODUCT_PACKAGES += \
     SystemUIGo \
