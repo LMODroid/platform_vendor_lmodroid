@@ -306,7 +306,8 @@ PRODUCT_PACKAGE_OVERLAYS += \
 
 PRODUCT_PACKAGES += \
     DocumentsUIOverlay \
-    NetworkStackOverlay
+    NetworkStackOverlay \
+    NetworkStackMainlineOverlay
 
 # Translations
 CUSTOM_LOCALES += \
