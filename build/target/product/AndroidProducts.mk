@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2018-2020 The LineageOS Project
-# Copyright (C) 2020-2021 The LibreMobileOS Foundation
+# Copyright (C) 2020-2024 The LibreMobileOS Foundation
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lmodroid_gsi_tv_x86_64.mk \
     $(LOCAL_DIR)/lmodroid_sdk_car_arm64.mk \
     $(LOCAL_DIR)/lmodroid_sdk_car_x86_64.mk \
+    $(LOCAL_DIR)/lmodroid_sdk_phone_arm64.mk \
     $(LOCAL_DIR)/lmodroid_sdk_phone_x86.mk \
     $(LOCAL_DIR)/lmodroid_sdk_phone_x86_64.mk \
     $(LOCAL_DIR)/lmodroid_sdk_tv_arm.mk \
@@ -46,6 +47,7 @@ COMMON_LUNCH_CHOICES := \
     lmodroid_gsi_tv_x86_64-userdebug \
     lmodroid_sdk_car_arm64-userdebug \
     lmodroid_sdk_car_x86_64-userdebug \
+    lmodroid_sdk_phone_arm64-userdebug \
     lmodroid_sdk_phone_x86-userdebug \
     lmodroid_sdk_phone_x86_64-userdebug \
     lmodroid_sdk_tv_arm-userdebug \
