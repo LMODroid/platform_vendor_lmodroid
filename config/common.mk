@@ -102,6 +102,7 @@ endif
 
 ifeq ($(PRODUCT_IS_ATV),)
 # Include AOSP audio files
+$(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackage14.mk)
 include vendor/lmodroid/config/aosp_audio.mk
 
 # Default notification/alarm sounds
