@@ -110,6 +110,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.alarm_alert?=Hassium.ogg
 endif
 
+# Include AOSP initial package stopped states.
+PRODUCT_PACKAGES += \
+    initial-package-stopped-states-aosp.xml
+
 # Bootanimation
 TARGET_SCREEN_WIDTH ?= 1080
 TARGET_SCREEN_HEIGHT ?= 1920
