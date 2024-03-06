@@ -72,6 +72,7 @@ function breakfast()
 {
     target=$1
     local variant=$2
+    source ${ANDROID_BUILD_TOP}/vendor/lmodroid/vars/aosp_target_release
 
     if [ $# -eq 0 ]; then
         # No arguments, so let's have the full menu
@@ -86,7 +87,7 @@ function breakfast()
                 variant="userdebug"
             fi
 
-            lunch lmodroid_$target-$variant
+            lunch lmodroid_$target-$aosp_target_release-$variant
         fi
     fi
     return $?
