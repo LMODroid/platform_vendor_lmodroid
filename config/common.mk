@@ -204,7 +204,8 @@ $(call inherit-product, external/svox/svox_tts.mk)
 
 # Config
 PRODUCT_PACKAGES += \
-    SimpleDeviceConfig
+    SimpleDeviceConfig \
+    SimpleSettingsConfig
 
 # Extra tools
 PRODUCT_PACKAGES += \
