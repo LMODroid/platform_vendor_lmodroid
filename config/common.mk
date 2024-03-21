@@ -180,8 +180,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PACKAGES += \
     Etar \
     GameSpace \
+    LMOPdfViewer \
     ParallelSpace \
-    PdfViewer \
     Recorder \
     Seedvault
 
