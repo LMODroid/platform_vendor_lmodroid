@@ -29,7 +29,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lmodroid_sdk_car_arm64.mk \
     $(LOCAL_DIR)/lmodroid_sdk_car_x86_64.mk \
     $(LOCAL_DIR)/lmodroid_sdk_phone_arm64.mk \
-    $(LOCAL_DIR)/lmodroid_sdk_phone_x86.mk \
     $(LOCAL_DIR)/lmodroid_sdk_phone_x86_64.mk \
     $(LOCAL_DIR)/lmodroid_sdk_tv_arm.mk \
     $(LOCAL_DIR)/lmodroid_sdk_tv_x86.mk
@@ -48,7 +47,6 @@ COMMON_LUNCH_CHOICES := \
     lmodroid_sdk_car_arm64-userdebug \
     lmodroid_sdk_car_x86_64-userdebug \
     lmodroid_sdk_phone_arm64-userdebug \
-    lmodroid_sdk_phone_x86-userdebug \
     lmodroid_sdk_phone_x86_64-userdebug \
     lmodroid_sdk_tv_arm-userdebug \
     lmodroid_sdk_tv_x86-userdebug
