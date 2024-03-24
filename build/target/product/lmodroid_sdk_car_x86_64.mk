@@ -17,7 +17,7 @@ include vendor/lmodroid/build/target/product/lmodroid_generic_car_target.mk
 
 $(call inherit-product, device/generic/car/emulator/aosp_car_emulator.mk)
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/sdk_x86_64.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/sdk.mk)
 
 PRODUCT_NAME := lmodroid_sdk_car_x86_64
 
