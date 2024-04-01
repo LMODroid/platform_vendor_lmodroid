@@ -589,6 +589,7 @@
   <apn carrier="Telekom SK" mcc="231" mnc="02" apn="internet" type="default,supl" />
   <apn carrier="Telekom SK MMS" mcc="231" mnc="02" apn="mms" user="mms" password="mms" mmsc="http://mms" mmsproxy="192.168.1.1" mmsport="8080" type="mms" />
   <apn carrier="IMS" mcc="231" mnc="02" apn="ims" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20" />
+  <apn carrier="4ka Internet" mcc="231" mnc="03" apn="internet" user="" password="" authtype="1" type="default,ia,supl" mvno_type="spn" mvno_match_data="4KA SK" />
   <apn carrier="IMS" mcc="231" mnc="03" apn="ims" type="ims" network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20" />
   <apn carrier="Telekom SK" mcc="231" mnc="04" apn="internet" type="default,supl" />
   <apn carrier="Telekom SK MMS" mcc="231" mnc="04" apn="mms" user="mms" password="mms" mmsc="http://mms" mmsproxy="192.168.1.1" mmsport="8080" type="mms" />
