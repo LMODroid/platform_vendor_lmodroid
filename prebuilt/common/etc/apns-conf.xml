@@ -3431,14 +3431,19 @@
   <apn carrier="Ncell MMS" mcc="429" mnc="02" apn="mms" mmsc="http://192.168.19.15" mmsproxy="192.168.19.15" mmsport="8080" type="mms" />
   <apn carrier="Ncell WAP" mcc="429" mnc="02" apn="web" proxy="192.168.19.15" port="8080" type="default,supl" />
   <apn carrier="IMS" mcc="429" mnc="02" apn="ims" type="ims" protocol="IPV4V6" />
-  <apn carrier="Samantel" mcc="432" mnc="01" apn="samantel" type="default,supl" />
-  <apn carrier="Shatelmobile" mcc="432" mnc="08" apn="shatelmobile" type="default,supl" />
-  <apn carrier="IR-MCI" mcc="432" mnc="11" apn="mcinet" type="default,supl" />
-  <apn carrier="Rightel" mcc="432" mnc="20" apn="rightel" type="default,supl" />
+  <apn carrier="Samantel" mcc="432" mnc="01" apn="samantel" type="default,supl" protocol="IPV4V6" roaming_protocol="IPV4V6" />
+  <apn carrier="IMS" mcc="432" mnc="01" apn="ims" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"/>
+  <apn carrier="Shatelmobile" mcc="432" mnc="08" apn="shatelmobile" type="default,supl" protocol="IPV4V6" roaming_protocol="IPV4V6" />
+  <apn carrier="IMS" mcc="432" mnc="08" apn="ims" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"/>
+  <apn carrier="IR-MCI" mcc="432" mnc="11" apn="mcinet" type="default,supl" protocol="IPV4V6" roaming_protocol="IPV4V6" />
+  <apn carrier="IR-MCI MMS" mcc="432" mnc="11" apn="mcinet" mmsc="http://192.168.193.134:38090/was" mmsproxy="192.168.194.73" mmsport="8080" type="mms" />
+  <apn carrier="IMS" mcc="432" mnc="11" apn="ims" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"/>
+  <apn carrier="Rightel" mcc="432" mnc="20" apn="rightel" type="default,supl" protocol="IPV4V6" roaming_protocol="IPV4V6" />
   <apn carrier="Rightel MMS" mcc="432" mnc="20" apn="RighTel-WAP" mmsc="http://10.200.40.55:38090/was" mmsproxy="10.200.39.10" mmsport="8080" type="mms" />
-  <apn carrier="IR-MCI MMS" mcc="432" mnc="20" apn="mcinet" mmsc="http://192.168.193.134:38090/was" mmsproxy="192.168.194.73" mmsport="8080" type="mms" />
-  <apn carrier="Irancell" mcc="432" mnc="35" apn="irancell" type="default,supl" />
+  <apn carrier="IMS" mcc="432" mnc="20" apn="ims" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"/>
+  <apn carrier="Irancell" mcc="432" mnc="35" apn="irancell" type="default,supl" protocol="IPV4V6" roaming_protocol="IPV4V6" />
   <apn carrier="Irancell MMS" mcc="432" mnc="35" apn="irancell" mmsc="http://mms:8002" mmsproxy="10.131.26.138" mmsport="8080" type="mms" />
+  <apn carrier="IMS" mcc="432" mnc="35" apn="ims" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" network_type_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20"/>
   <apn carrier="Beeline UZ" mcc="434" mnc="04" apn="internet.beeline.uz" user="beeline" password="beeline" type="default,supl" />
   <apn carrier="Beeline UZ MMS" mcc="434" mnc="04" apn="mms.beeline.uz" user="beeline" password="beeline" mmsc="http://mms" mmsproxy="172.30.30.166" mmsport="8080" type="mms" />
   <apn carrier="Ucell Internet" mcc="434" mnc="05" apn="internet" proxy="10.64.164.10" port="8080" mmsc="" user="" password="" type="default,supl" />
