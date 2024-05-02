@@ -110,7 +110,3 @@ PRODUCT_PACKAGES += \
     LMODroidBlackTheme \
     ThemePicker \
     ThemesStub
-
-# UDFPS Animation effects
-PRODUCT_PACKAGES += \
-    UdfpsAnimations
