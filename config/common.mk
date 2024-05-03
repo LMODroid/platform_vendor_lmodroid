@@ -161,6 +161,10 @@ PRODUCT_PACKAGES += \
 
 endif
 
+ifneq ($(filter %_lemonades %_kebab,$(TARGET_PRODUCT)),)
+PRODUCT_PACKAGES += LMORemovePackages
+endif
+
 # LMO Framework
 PRODUCT_PACKAGES += \
     LMOManifest \
