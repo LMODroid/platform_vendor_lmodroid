@@ -879,7 +879,7 @@ EOF
                 fi
                 adb shell restorecon "$TARGET"
             ;;
-            */SystemUI.apk|*/framework/*)
+            */*SystemUI.apk|*/framework/*)
                 # Only need to stop services once
                 if ! $stop_n_start; then
                     adb shell stop
