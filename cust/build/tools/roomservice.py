@@ -320,7 +320,7 @@ def get_default_or_supported_revision(repo_name, repo_remote):
     print("Checking branch info")
 
     githubreq = urllib.request.Request("https://api.github.com/repos/LineageOS/" + repo_name + "/branches")
-    result = json.loads(urllib.request.urlopen(githubreq).read().decode())
+    result = json.loads(urllib.request.urlopen(githubreq, timeout=5).read().decode())
     if has_branch(result, default_revision):
         return default_revision
 
