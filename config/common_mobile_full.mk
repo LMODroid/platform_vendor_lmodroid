@@ -23,3 +23,7 @@ PRODUCT_PACKAGES += \
 # Recorder
 PRODUCT_PACKAGES += \
     Recorder
+
+# Include LMODroid LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/lmodroid/overlay/dictionaries
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lmodroid/overlay/dictionaries

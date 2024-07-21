@@ -1,17 +1,9 @@
 # Inherit mobile full common LMODroid stuff
 $(call inherit-product, vendor/lmodroid/config/common_mobile_full.mk)
 
-# Required packages
-PRODUCT_PACKAGES += \
-    LatinIME
-
 # UDFPS Animation effects
 PRODUCT_PACKAGES += \
     UdfpsAnimations
-
-# Include Lineage LatinIME dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/lmodroid/overlay/dictionaries
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lmodroid/overlay/dictionaries
 
 # Enable support of one-handed mode
 PRODUCT_PRODUCT_PROPERTIES += \

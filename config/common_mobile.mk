@@ -3,7 +3,8 @@ $(call inherit-product, vendor/lmodroid/config/common.mk)
 
 # Apps
 PRODUCT_PACKAGES += \
-   Glimpse
+    Glimpse \
+    LatinIME
 
 ifeq ($(PRODUCT_TYPE), go)
 PRODUCT_PACKAGES += \
