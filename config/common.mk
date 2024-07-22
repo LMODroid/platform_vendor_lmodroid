@@ -179,6 +179,10 @@ ifneq ($(filter %_lemonades %_kebab %_nairo %_alioth,$(TARGET_PRODUCT)),)
 PRODUCT_PACKAGES += LMORemovePackages
 endif
 
+# LMO APEXes
+PRODUCT_PACKAGES += \
+    com.libremobileos.microg-stub
+
 # LMO Framework
 PRODUCT_PACKAGES += \
     LMOManifest \
