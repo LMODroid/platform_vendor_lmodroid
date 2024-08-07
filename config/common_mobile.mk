@@ -61,6 +61,10 @@ PRODUCT_PACKAGES += \
     IconShapeVesselOverlay \
     NavigationBarMode2ButtonOverlay
 
+# Display
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    debug.sf.frame_rate_multiple_threshold=60
+
 # DesktopMode
 ifneq ($(TARGET_WITHOUT_DESKTOPMODE), true)
 PRODUCT_PACKAGES += \
