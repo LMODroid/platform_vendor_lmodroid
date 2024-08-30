@@ -7,6 +7,7 @@ PRODUCT_SIZE := full
 $(call inherit-product-if-exists, external/google-fonts/lato/fonts.mk)
 $(call inherit-product-if-exists, external/google-fonts/rubik/fonts.mk)
 $(call inherit-product-if-exists, external/libremobileos-fonts/AlbertSans/fonts.mk)
+$(call inherit-product-if-exists, external/libremobileos-fonts/Vazirmatn/fonts.mk)
 
 # Extra cmdline tools
 PRODUCT_PACKAGES += \
@@ -18,7 +19,8 @@ PRODUCT_PACKAGES += \
     fonts_customization.xml \
     FontAlbertSansOverlay \
     FontLatoOverlay \
-    FontRubikOverlay
+    FontRubikOverlay \
+    FontVazirmatnOverlay
 
 # Recorder
 PRODUCT_PACKAGES += \
