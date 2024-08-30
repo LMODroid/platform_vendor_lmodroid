@@ -158,7 +158,8 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(PRODUCT_IS_ATV),)
 PRODUCT_PACKAGES += \
-    Jellyfish
+    Jellyfish \
+    NumberHub
 endif
 
 endif
@@ -202,11 +203,6 @@ PRODUCT_PACKAGES += \
 ifneq ($(PRODUCT_NO_CAMERA),true)
 PRODUCT_PACKAGES += \
     Aperture
-endif
-
-ifeq ($(PRODUCT_IS_ATV),)
-PRODUCT_PACKAGES += \
-    ExactCalculator
 endif
 
 # TouchGestures
