@@ -55,3 +55,6 @@ LMODROID_PROPERTIES := \
     ro.lmodroid.build_date=$(BUILD_DATE) \
     ro.lmodroid.build_type=$(LMODROID_BUILDTYPE) \
     ro.lmodroid.version=$(LMODROID_VERSION)
+
+# LMODroid version properties
+PRODUCT_SYSTEM_PROPERTIES += $(LMODROID_PROPERTIES)
