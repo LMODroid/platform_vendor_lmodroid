@@ -34,7 +34,11 @@ ifeq ($(WITH_GMS),true)
             ifneq ($(GMS_MAKEFILE),)
                 $(call inherit-product, vendor/partner_gms/products/$(GMS_MAKEFILE))
             else
-                $(call inherit-product-if-exists, vendor/partner_gms/products/gms.mk)
+                ifeq ($(TARGET_SUPPORTS_32_BIT_APPS),true)
+                    $(call inherit-product-if-exists, vendor/partner_gms/products/gms.mk)
+                else
+                    $(call inherit-product-if-exists, vendor/partner_gms/products/gms_64bit_only.mk)
+                endif
             endif
         endif
 
