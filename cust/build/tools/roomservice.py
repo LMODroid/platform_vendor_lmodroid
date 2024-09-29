@@ -311,9 +311,6 @@ def fetch_dependencies(repo_path):
 def has_branch(branches, revision):
     return revision in [branch['name'] for branch in branches]
 
-def get_default_revision_no_minor(repo_remote):
-    return get_default_revision(repo_remote).rsplit('.', 1)[0]
-
 def get_default_or_supported_revision(repo_name, repo_remote):
     default_revision = get_default_revision(repo_remote)
     print("Default revision: %s" % default_revision)
@@ -323,11 +320,6 @@ def get_default_or_supported_revision(repo_name, repo_remote):
     result = json.loads(urllib.request.urlopen(githubreq, timeout=5).read().decode())
     if has_branch(result, default_revision):
         return default_revision
-
-    fallback = get_default_revision_no_minor(repo_remote)
-    if has_branch(result, fallback):
-        print("Using fallback branch: %s" % fallback)
-        return fallback
 
     print("Default revision %s not found in %s. Bailing." % (default_revision, repo_name))
     print("Branches found:")
