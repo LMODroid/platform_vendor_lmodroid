@@ -125,10 +125,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Backgrounds
 
-# Build Manifest
-PRODUCT_PACKAGES += \
-    build-manifest
-
 # Updater
 PRODUCT_PACKAGES += \
     Updater
