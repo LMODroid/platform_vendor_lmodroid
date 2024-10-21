@@ -1,0 +1,8 @@
+# Additional help function
+# Print extra information when user types "hmm"
+__customer_help() {
+    cat <<EOF
+Additional functions:
+
+EOF
+}
