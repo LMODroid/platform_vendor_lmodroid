@@ -274,6 +274,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     rsync
 
+# Stats
+PRODUCT_PACKAGES += \
+    LMOStats
+
 # Storage manager
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.storage_manager.enabled=true
