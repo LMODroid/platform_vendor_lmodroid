@@ -58,17 +58,9 @@ SOONG_CONFIG_NAMESPACES += lmodroidNvidiaVars
 SOONG_CONFIG_lmodroidNvidiaVars += \
     uses_nvidia_enhancements
 
-SOONG_CONFIG_NAMESPACES += lmodroidQcomVars
-
 SOONG_CONFIG_NAMESPACES += lmodroidMtkVars
 SOONG_CONFIG_lmodroidMtkVars += \
     has_mtk_surfaceflinger
-
-# Only create display_headers_namespace var if dealing with UM platforms to avoid breaking build for all other platforms
-ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
-SOONG_CONFIG_lmodroidQcomVars += \
-    qcom_display_headers_namespace
-endif
 
 # Soong bool variables
 SOONG_CONFIG_lmodroidGlobalVars_camera_override_format_from_reserved := $(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED)
@@ -126,8 +118,3 @@ SOONG_CONFIG_lmodroidGlobalVars_target_surfaceflinger_udfps_lib := $(TARGET_SURF
 SOONG_CONFIG_lmodroidGlobalVars_target_trust_usb_control_path := $(TARGET_TRUST_USB_CONTROL_PATH)
 SOONG_CONFIG_lmodroidGlobalVars_target_trust_usb_control_enable := $(TARGET_TRUST_USB_CONTROL_ENABLE)
 SOONG_CONFIG_lmodroidGlobalVars_target_trust_usb_control_disable := $(TARGET_TRUST_USB_CONTROL_DISABLE)
-ifneq ($(filter $(QSSI_SUPPORTED_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
-SOONG_CONFIG_lmodroidQcomVars_qcom_display_headers_namespace := vendor/qcom/opensource/commonsys-intf/display
-else
-SOONG_CONFIG_lmodroidQcomVars_qcom_display_headers_namespace := $(QCOM_SOONG_NAMESPACE)/display
-endif
