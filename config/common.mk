@@ -142,6 +142,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Backgrounds
 
+# Dynamic Wallpaper
+PRODUCT_PACKAGES += \
+    LMODynamicWallpaper
+
 # Updater
 PRODUCT_PACKAGES += \
     Updater
