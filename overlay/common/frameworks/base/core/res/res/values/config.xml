@@ -186,4 +186,8 @@
     <string-array translatable="false" name="config_ntpServers">
         <item>ntp://2.android.pool.ntp.org</item>
     </string-array>
+
+    <!-- Component name of the default wallpaper. This will be ImageWallpaper if not
+         specified -->
+     <string name="default_wallpaper_component" translatable="false">com.libremobileos.dynamicwallpaper/com.libremobileos.dynamicwallpaper.GLWallpaperService</string>
 </resources>
