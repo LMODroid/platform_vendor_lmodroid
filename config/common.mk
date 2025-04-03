@@ -171,7 +171,8 @@ endif
 ifneq ($(WITH_GMS),true)
 PRODUCT_PACKAGES += \
     F-Droid \
-    F-DroidPrivilegedExtension
+    F-DroidPrivilegedExtension \
+    fdroid-additional-repos
 
 endif
 

@@ -18,3 +18,11 @@ prebuilt_etc_xml {
     src: "etc/lmodroid-component-overrides.xml",
     sub_dir: "sysconfig",
 }
+
+prebuilt_etc_xml {
+    name: "fdroid-additional-repos",
+    product_specific: true,
+    src: "etc/org.fdroid.fdroid/additional_repos.xml",
+    filename_from_src: true,
+    sub_dir: "org.fdroid.fdroid",
+}
