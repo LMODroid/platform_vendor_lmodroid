@@ -191,7 +191,7 @@ ifneq ($(filter %_lemonades %_kebab %_nairo %_alioth,$(TARGET_PRODUCT)),)
 PRODUCT_PACKAGES += LMORemovePackages
 endif
 
-ifneq ($(filter ,$(TARGET_PRODUCT)),)
+ifneq ($(filter %_m5_tab,$(TARGET_PRODUCT)),)
 PRODUCT_PACKAGES += LMORemovePackagesMinimal
 PRODUCT_NO_CAMERA := true
 TARGET_FACE_UNLOCK_OPTOUT := true
