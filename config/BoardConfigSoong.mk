@@ -9,7 +9,8 @@ EXPORT_TO_SOONG := \
     KERNEL_MAKE_FLAGS \
     PATH_OVERRIDE_SOONG \
     TARGET_KERNEL_CONFIG \
-    TARGET_KERNEL_SOURCE
+    TARGET_KERNEL_SOURCE \
+    TARGET_PREBUILT_KERNEL_HEADERS
 
 $(call add_soong_config_namespace,lmodroidVarsPlugin)
 $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call add_soong_config_var,lmodroidVarsPlugin,$(v))))
