@@ -169,13 +169,13 @@ PRODUCT_PACKAGES += \
 endif
 
 ifneq ($(filter %_lemonades %_kebab %_nairo %_alioth,$(TARGET_PRODUCT)),)
-PRODUCT_PACKAGES += LMORemovePackages
+PRODUCT_PACKAGES += LMORemovePackagesMinimal
 endif
 
 ifneq ($(filter %_m5_tab,$(TARGET_PRODUCT)),)
-PRODUCT_PACKAGES += LMORemovePackagesMinimal
+PRODUCT_PACKAGES += LMORemovePackages
 PRODUCT_NO_CAMERA := true
-TARGET_FACE_UNLOCK_OPTOUT := true
+TARGET_FACE_UNLOCK_OPTOUT := false
 TARGET_WITHOUT_DESKTOPMODE := true
 endif
 
