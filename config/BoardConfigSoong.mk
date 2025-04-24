@@ -25,7 +25,6 @@ $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))
 SOONG_CONFIG_NAMESPACES += lmodroidGlobalVars
 SOONG_CONFIG_lmodroidGlobalVars += \
     additional_gralloc_10_usage_bits \
-    camera_override_format_from_reserved \
     target_libcameraservice_ext_lib
 
 SOONG_CONFIG_NAMESPACES += lmodroidMtkVars
@@ -33,17 +32,20 @@ SOONG_CONFIG_lmodroidMtkVars += \
     has_mtk_surfaceflinger
 
 # Soong bool variables
-SOONG_CONFIG_lmodroidGlobalVars_camera_override_format_from_reserved := $(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED)
 SOONG_CONFIG_lmodroidMtkVars_has_mtk_surfaceflinger := $(TARGET_HAS_MTK_SURFACEFLINGER)
 
 # Set default values
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS ?= 0
-TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED ?= false
 TARGET_CAMERA_SERVICE_EXT_LIB ?= libcameraservice_ext_lib
 
 # Soong value variables
 SOONG_CONFIG_lmodroidGlobalVars_additional_gralloc_10_usage_bits := $(TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS)
 SOONG_CONFIG_lmodroidGlobalVars_target_libcameraservice_ext_lib := $(TARGET_CAMERA_SERVICE_EXT_LIB)
+
+# Camera
+ifneq ($(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED),)
+    $(call soong_config_set,camera,override_format_from_reserved,$(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED))
+endif
 
 # Lineage Health HAL
 ifneq ($(TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH),)
