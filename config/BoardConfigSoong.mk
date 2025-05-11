@@ -11,16 +11,8 @@ EXPORT_TO_SOONG := \
     TARGET_KERNEL_CONFIG \
     TARGET_KERNEL_SOURCE
 
-SOONG_CONFIG_NAMESPACES += lmodroidVarsPlugin
-
-SOONG_CONFIG_lmodroidVarsPlugin :=
-
-define addVar
-  SOONG_CONFIG_lmodroidVarsPlugin += $(1)
-  SOONG_CONFIG_lmodroidVarsPlugin_$(1) := $($1)
-endef
-
-$(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))
+$(call add_soong_config_namespace,lmodroidVarsPlugin)
+$(foreach v,$(EXPORT_TO_SOONG),$(eval $(call add_soong_config_var,lmodroidVarsPlugin,$(v))))
 
 SOONG_CONFIG_NAMESPACES += lmodroidGlobalVars
 SOONG_CONFIG_lmodroidGlobalVars += \
