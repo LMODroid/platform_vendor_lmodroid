@@ -377,6 +377,9 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     debug.sf.enable_transaction_tracing=false
 endif
 
+# Audio files
+$(call inherit-product, vendor/lmodroid/audio/audio.mk)
+
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lmodroid/overlay/no-rro
 PRODUCT_PACKAGE_OVERLAYS += \
     vendor/lmodroid/overlay/common \
