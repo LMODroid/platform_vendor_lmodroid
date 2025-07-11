@@ -15,20 +15,14 @@ EXPORT_TO_SOONG := \
 $(call add_soong_config_namespace,lmodroidVarsPlugin)
 $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call add_soong_config_var,lmodroidVarsPlugin,$(v))))
 
-SOONG_CONFIG_NAMESPACES += lmodroidGlobalVars
-SOONG_CONFIG_lmodroidGlobalVars += \
-    target_libcameraservice_ext_lib
-
-# Set default values
-TARGET_CAMERA_SERVICE_EXT_LIB ?= libcameraservice_ext_lib
-
-# Soong value variables
-SOONG_CONFIG_lmodroidGlobalVars_target_libcameraservice_ext_lib := $(TARGET_CAMERA_SERVICE_EXT_LIB)
-
 # Camera
 ifneq ($(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED),)
     $(warning TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED is deprecated, please migrate to soong_config_set,camera,override_format_from_reserved)
     $(call soong_config_set,camera,override_format_from_reserved,$(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED))
+endif
+ifneq ($(TARGET_CAMERA_SERVICE_EXT_LIB),)
+    $(warning TARGET_CAMERA_SERVICE_EXT_LIB is deprecated, please migrate to soong_config_set,camera,ext_lib)
+    $(call soong_config_set,camera,ext_lib,$(TARGET_CAMERA_SERVICE_EXT_LIB))
 endif
 
 # Libui
