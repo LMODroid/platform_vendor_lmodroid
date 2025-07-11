@@ -19,13 +19,6 @@ SOONG_CONFIG_NAMESPACES += lmodroidGlobalVars
 SOONG_CONFIG_lmodroidGlobalVars += \
     target_libcameraservice_ext_lib
 
-SOONG_CONFIG_NAMESPACES += lmodroidMtkVars
-SOONG_CONFIG_lmodroidMtkVars += \
-    has_mtk_surfaceflinger
-
-# Soong bool variables
-SOONG_CONFIG_lmodroidMtkVars_has_mtk_surfaceflinger := $(TARGET_HAS_MTK_SURFACEFLINGER)
-
 # Set default values
 TARGET_CAMERA_SERVICE_EXT_LIB ?= libcameraservice_ext_lib
 
@@ -81,6 +74,10 @@ endif
 ifneq ($(TARGET_SURFACEFLINGER_UDFPS_LIB),)
     $(warning TARGET_SURFACEFLINGER_UDFPS_LIB is deprecated, please migrate to soong_config_set,surfaceflinger,udfps_lib)
     $(call soong_config_set,surfaceflinger,udfps_lib,$(TARGET_SURFACEFLINGER_UDFPS_LIB))
+endif
+ifneq ($(TARGET_HAS_MTK_SURFACEFLINGER),)
+    $(warning TARGET_HAS_MTK_SURFACEFLINGER is deprecated, please migrate to soong_config_set,surfaceflinger,has_mtk_surfaceflinger)
+    $(call soong_config_set,surfaceflinger,has_mtk_surfaceflinger,$(TARGET_HAS_MTK_SURFACEFLINGER))
 endif
 
 # Vendor init
