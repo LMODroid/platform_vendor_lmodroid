@@ -1,6 +1,9 @@
 # Allow vendor/extra to override any property by setting it first
 -include vendor/extra/product.mk
 
+# Allow vendor prebuilt repos to exclude themselves from bp scanning
+-include $(sort $(wildcard vendor/*/*/exclude-bp.mk))
+
 PRODUCT_BRAND ?= LMODroid
 
 include $(CUSTOMER_VENDOR_DIR)/build/config.mk
