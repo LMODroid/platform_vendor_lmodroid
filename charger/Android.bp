@@ -1,0 +1,85 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+lmodroid_charger_density = select(soong_config_variable("lmodroid_charger", "density"), {
+    any @ flag_val: flag_val,
+    default: "mdpi",
+})
+
+prebuilt_etc {
+    name: "lmodroid_charger_battery_scale",
+    filename: "battery_scale.png",
+    src: lmodroid_charger_density + "/battery_scale.png",
+    relative_install_path: "res/images/charger",
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "lmodroid_charger_battery_scale_vendor",
+    filename: "battery_scale.png",
+    src: lmodroid_charger_density + "/battery_scale.png",
+    relative_install_path: "res/images/charger",
+    proprietary: true,
+}
+
+prebuilt_etc {
+    name: "lmodroid_charger_battery_fail",
+    filename: "battery_fail.png",
+    src: lmodroid_charger_density + "/battery_fail.png",
+    relative_install_path: "res/images/charger",
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "lmodroid_charger_battery_fail_vendor",
+    filename: "battery_fail.png",
+    src: lmodroid_charger_density + "/battery_fail.png",
+    relative_install_path: "res/images/charger",
+    proprietary: true,
+}
+
+prebuilt_etc {
+    name: "lmodroid_charger_font",
+    filename: "percent_font.png",
+    src: lmodroid_charger_density + "/percent_font.png",
+    relative_install_path: "res/images/charger",
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "lmodroid_charger_font_vendor",
+    filename: "percent_font.png",
+    src: lmodroid_charger_density + "/percent_font.png",
+    relative_install_path: "res/images/charger",
+    proprietary: true,
+}
+
+prebuilt_etc {
+    name: "lmodroid_charger_animation",
+    filename: "animation.txt",
+
+    required: [
+        "lmodroid_charger_battery_fail",
+        "lmodroid_charger_battery_scale",
+        "lmodroid_charger_font",
+    ],
+    src: "animation.txt",
+    relative_install_path: "res/values/charger",
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "lmodroid_charger_animation_vendor",
+    filename: "animation.txt",
+
+    required: [
+        "lmodroid_charger_battery_fail_vendor",
+        "lmodroid_charger_battery_scale_vendor",
+        "lmodroid_charger_font_vendor",
+    ],
+    src: "animation.txt",
+    relative_install_path: "res/values/charger",
+    proprietary: true,
+}
