@@ -5,6 +5,7 @@ $(call inherit-product, device/google/cuttlefish/vsoc_x86_64/phone/aosp_cf.mk)
 
 include vendor/lmodroid/build/target/product/lmodroid_generic_target.mk
 
+TARGET_DISABLE_EPPE := true
 TARGET_NO_KERNEL_OVERRIDE := true
 
 # Overrides
