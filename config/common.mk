@@ -207,6 +207,9 @@ endif
 PRODUCT_PACKAGES += \
     com.libremobileos.microg-stub
 
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/apex/com.libremobileos.microg-stub.apex
+
 # LMO Framework
 PRODUCT_PACKAGES += \
     LMOManifest \
