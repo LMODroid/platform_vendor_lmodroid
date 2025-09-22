@@ -215,6 +215,7 @@ def add_to_manifest(repositories):
     for repository in repositories:
         repo_name = repository['repository']
         repo_target = repository['target_path']
+        repo_revision = repository.get('branch', None)
         print('Checking if %s is fetched from %s' % (repo_target, repo_name))
         if is_in_manifest(repo_target):
             print('%s already fetched to %s' % (repo_name, repo_target))
@@ -227,17 +228,13 @@ def add_to_manifest(repositories):
 
         repo_attrib = { "path": repo_target,
             "remote": repo_remote, "name": repo_name }
-        if repo_remote == 'lineage':
+        if repo_revision is not None:
+            repo_attrib["revision"] = repo_revision
+        elif repo_remote == 'lineage':
             repo_attrib["revision"] = get_default_or_supported_revision(repo_name, repo_remote)
 
         print('Adding dependency: %s' % repo_name)
         project = ElementTree.Element("project", attrib = repo_attrib)
-
-        if 'branch' in repository:
-            project.set('revision',repository['branch'])
-        else:
-            print("Using default branch for %s" % repo_name)
-
         lm.append(project)
 
     indent(lm, 0)
