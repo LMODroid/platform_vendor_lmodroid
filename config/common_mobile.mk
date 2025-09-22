@@ -78,6 +78,10 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product-if-exists, packages/services/VncFlinger/product.mk)
 endif
 
+# Dynamic Wallpaper
+PRODUCT_PACKAGES += \
+    LMODynamicWallpaper
+
 # FaceUnlock
 ifneq ($(TARGET_FACE_UNLOCK_OPTOUT), true)
 PRODUCT_PACKAGES += \
