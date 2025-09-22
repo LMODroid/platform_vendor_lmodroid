@@ -188,11 +188,11 @@ PRODUCT_PACKAGES += \
 
 endif
 
-ifneq ($(filter %_lemonades %_kebab %_nairo %_alioth,$(TARGET_PRODUCT)),)
+ifneq ($(filter %_lemonades %_kebab %_nairo %_alioth %_cebu %_crosshatch %_guam %_guamp %_martini %_sargo,$(TARGET_PRODUCT)),)
 PRODUCT_PACKAGES += LMORemovePackages
 endif
 
-ifneq ($(filter %_m5_tab,$(TARGET_PRODUCT)),)
+ifneq ($(filter %_m5_tab %_odroidc4_tab %_radxa02_tab %_radxa0_tab,$(TARGET_PRODUCT)),)
 PRODUCT_PACKAGES += LMORemovePackagesMinimal
 PRODUCT_NO_CAMERA := true
 TARGET_FACE_UNLOCK_OPTOUT := true
