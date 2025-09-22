@@ -188,7 +188,7 @@ PRODUCT_PACKAGES += \
 
 endif
 
-ifneq ($(filter %_lemonades %_kebab %_nairo %_alioth %_cebu %_crosshatch %_guam %_guamp %_martini %_sargo,$(TARGET_PRODUCT)),)
+ifneq ($(filter %_lemonades %_kebab %_nairo %_alioth %_cebu %_crosshatch %_guam %_guamp %_martini %_sargo %_blueline %_bonito,$(TARGET_PRODUCT)),)
 PRODUCT_PACKAGES += LMORemovePackages
 endif
 
