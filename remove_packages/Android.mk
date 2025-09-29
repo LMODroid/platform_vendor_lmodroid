@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := LMORemovePackages
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
-LOCAL_OVERRIDES_PACKAGES := Gramophone F-Droid OrganicMaps UdfpsAnimations NumberHub FontAlbertSansOverlay FontVazirmatnOverlay Camelot QuickSearchBox Recorder
+LOCAL_OVERRIDES_PACKAGES := Gramophone F-Droid OrganicMaps UdfpsAnimations NumberHub Camelot QuickSearchBox Recorder
 LOCAL_UNINSTALLABLE_MODULE := true
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_SRC_FILES := /dev/null
