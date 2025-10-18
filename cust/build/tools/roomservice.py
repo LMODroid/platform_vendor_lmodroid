@@ -23,20 +23,22 @@ import netrc
 import os
 import re
 import sys
+
 try:
-  # For python3
-  import urllib.error
-  import urllib.parse
-  import urllib.request
+    # For python3
+    import urllib.error
+    import urllib.parse
+    import urllib.request
 except ImportError:
-  # For python2
-  import imp
-  import urllib2
-  import urlparse
-  urllib = imp.new_module('urllib')
-  urllib.error = urllib2
-  urllib.parse = urlparse
-  urllib.request = urllib2
+    # For python2
+    import imp
+    import urllib2
+    import urlparse
+
+    urllib = imp.new_module('urllib')
+    urllib.error = urllib2
+    urllib.parse = urlparse
+    urllib.request = urllib2
 
 from xml.etree import ElementTree
 
@@ -48,17 +50,20 @@ else:
     depsonly = None
 
 try:
-    device = product[product.index("_") + 1:]
+    device = product[product.index('_') + 1 :]
 except:
     device = product
 
 if not depsonly:
-    print("Device %s not found. Attempting to retrieve device repository from LMODroid-Devices of LMO Git (https://git.libremobileos.com/LMODroid-Devices)." % device)
+    print(
+        'Device %s not found. Attempting to retrieve device repository from LMODroid-Devices of LMO Git (https://git.libremobileos.com/LMODroid-Devices).'
+        % device
+    )
 
 repositories = []
 
 try:
-    authtuple = netrc.netrc().authenticators("git.libremobileos.com")
+    authtuple = netrc.netrc().authenticators('git.libremobileos.com')
 
     if authtuple:
         gitlmoauth = authtuple[0]
@@ -67,41 +72,51 @@ try:
 except:
     gitlmoauth = None
 
+
 def add_auth(gitlmoreq):
     if gitlmoauth:
-        gitlmoreq.add_header("Authorization","Bearer %s" % gitlmoauth)
+        gitlmoreq.add_header('Authorization', 'Bearer %s' % gitlmoauth)
+
 
 if not depsonly:
-    git_req_url = "https://git.libremobileos.com/api/v4/groups/LMODroid-Devices/projects?per_page=100"
+    git_req_url = 'https://git.libremobileos.com/api/v4/groups/LMODroid-Devices/projects?per_page=100'
     total_pages = 0
     gitlmoreq = urllib.request.Request(git_req_url)
     add_auth(gitlmoreq)
     try:
         if hasattr(urllib.request.urlopen(gitlmoreq), 'getheader'):
-            total_pages = urllib.request.urlopen(gitlmoreq).getheader('X-Total-Pages')
+            total_pages = urllib.request.urlopen(gitlmoreq).getheader(
+                'X-Total-Pages'
+            )
         else:
-            total_pages = urllib.request.urlopen(gitlmoreq).headers.get('X-Total-Pages')
+            total_pages = urllib.request.urlopen(gitlmoreq).headers.get(
+                'X-Total-Pages'
+            )
     except urllib.error.URLError:
-        print("Failed to get devices repos")
+        print('Failed to get devices repos')
         sys.exit(1)
 
-    for page in range(1, int(total_pages)+1):
-        gitlmoreq = urllib.request.Request(git_req_url + "&page=" + str(page))
+    for page in range(1, int(total_pages) + 1):
+        gitlmoreq = urllib.request.Request(git_req_url + '&page=' + str(page))
         add_auth(gitlmoreq)
         try:
-            result = json.loads(urllib.request.urlopen(gitlmoreq).read().decode())
+            result = json.loads(
+                urllib.request.urlopen(gitlmoreq).read().decode()
+            )
         except urllib.error.URLError:
-            print("Failed to get devices repos")
+            print('Failed to get devices repos')
             sys.exit(1)
         except ValueError:
-            print("Failed to parse return data from LMO git")
+            print('Failed to parse return data from LMO git')
             sys.exit(1)
         for project in result:
-            if device in project["name"]:
+            if device in project['name']:
                 repositories.append(project)
 
 local_manifests = r'.repo/local_manifests'
-if not os.path.exists(local_manifests): os.makedirs(local_manifests)
+if not os.path.exists(local_manifests):
+    os.makedirs(local_manifests)
+
 
 def exists_in_tree(lm, path):
     for child in lm.getchildren():
@@ -109,108 +124,120 @@ def exists_in_tree(lm, path):
             return True
     return False
 
+
 # in-place prettyprint formatter
 def indent(elem, level=0):
-    i = "\n" + level*"  "
+    i = '\n' + level * '  '
     if len(elem):
         if not elem.text or not elem.text.strip():
-            elem.text = i + "  "
+            elem.text = i + '  '
         if not elem.tail or not elem.tail.strip():
             elem.tail = i
         for elem in elem:
-            indent(elem, level+1)
+            indent(elem, level + 1)
         if not elem.tail or not elem.tail.strip():
             elem.tail = i
     else:
         if level and (not elem.tail or not elem.tail.strip()):
             elem.tail = i
 
+
 def get_manifest_path():
-    '''Find the current manifest path
+    """Find the current manifest path
     In old versions of repo this is at .repo/manifest.xml
     In new versions, .repo/manifest.xml includes an include
-    to some arbitrary file in .repo/manifests'''
+    to some arbitrary file in .repo/manifests"""
 
-    m = ElementTree.parse(".repo/manifest.xml")
+    m = ElementTree.parse('.repo/manifest.xml')
     try:
         m.findall('default')[0]
         return '.repo/manifest.xml'
     except IndexError:
-        return ".repo/manifests/{}".format(m.find("include").get("name"))
+        return '.repo/manifests/{}'.format(m.find('include').get('name'))
 
-def get_default_revision(remote = 'lmodroid'):
-    m = ElementTree.parse(".repo/manifests/snippets/" + remote + ".xml")
+
+def get_default_revision(remote='lmodroid'):
+    m = ElementTree.parse('.repo/manifests/snippets/' + remote + '.xml')
     d = m.findall('remote')
     for n in d:
         if n.get('name') == remote:
             r = n.get('revision')
             return r.replace('refs/heads/', '').replace('refs/tags/', '')
 
+
 def get_from_manifest(devicename):
     try:
-        lm = ElementTree.parse(".repo/local_manifests/roomservice.xml")
+        lm = ElementTree.parse('.repo/local_manifests/roomservice.xml')
         lm = lm.getroot()
     except:
-        lm = ElementTree.Element("manifest")
+        lm = ElementTree.Element('manifest')
 
-    for localpath in lm.findall("project"):
-        if re.search("device_.*_%s$" % device, localpath.get("name")):
-            return localpath.get("path")
+    for localpath in lm.findall('project'):
+        if re.search('device_.*_%s$' % device, localpath.get('name')):
+            return localpath.get('path')
 
     return None
 
+
 def is_in_manifest(projectpath):
     try:
-        lm = ElementTree.parse(".repo/local_manifests/roomservice.xml")
+        lm = ElementTree.parse('.repo/local_manifests/roomservice.xml')
         lm = lm.getroot()
     except:
-        lm = ElementTree.Element("manifest")
+        lm = ElementTree.Element('manifest')
 
-    for localpath in lm.findall("project"):
-        if localpath.get("path") == projectpath:
+    for localpath in lm.findall('project'):
+        if localpath.get('path') == projectpath:
             return True
 
     # Checkout removed projects
     removed_projects = []
     try:
-        lm = ElementTree.parse(".repo/manifests/snippets/remove.xml")
+        lm = ElementTree.parse('.repo/manifests/snippets/remove.xml')
         lm = lm.getroot()
     except:
-        lm = ElementTree.Element("manifest")
+        lm = ElementTree.Element('manifest')
 
-    for localpath in lm.findall("remove-project"):
-        removed_projects.append(localpath.get("name"))
+    for localpath in lm.findall('remove-project'):
+        removed_projects.append(localpath.get('name'))
 
     # Search in main manifest, too
     try:
         lm = ElementTree.parse(get_manifest_path())
         lm = lm.getroot()
     except:
-        lm = ElementTree.Element("manifest")
+        lm = ElementTree.Element('manifest')
 
-    for localpath in lm.findall("project"):
-        if localpath.get("path") == projectpath and localpath.get("name") not in removed_projects:
+    for localpath in lm.findall('project'):
+        if (
+            localpath.get('path') == projectpath
+            and localpath.get('name') not in removed_projects
+        ):
             return True
 
     # ... and don't forget the lmodroid snippet
     try:
-        lm = ElementTree.parse(".repo/manifests/snippets/lmodroid.xml")
+        lm = ElementTree.parse('.repo/manifests/snippets/lmodroid.xml')
         lm = lm.getroot()
     except:
-        lm = ElementTree.Element("manifest")
+        lm = ElementTree.Element('manifest')
 
-    for localpath in lm.findall("project"):
-        if localpath.get("path") == projectpath and localpath.get("name") not in removed_projects:
+    for localpath in lm.findall('project'):
+        if (
+            localpath.get('path') == projectpath
+            and localpath.get('name') not in removed_projects
+        ):
             return True
 
     return False
 
+
 def add_to_manifest(repositories):
     try:
-        lm = ElementTree.parse(".repo/local_manifests/roomservice.xml")
+        lm = ElementTree.parse('.repo/local_manifests/roomservice.xml')
         lm = lm.getroot()
     except:
-        lm = ElementTree.Element("manifest")
+        lm = ElementTree.Element('manifest')
 
     for repository in repositories:
         repo_name = repository['repository']
@@ -222,19 +249,24 @@ def add_to_manifest(repositories):
             continue
 
         if 'remote' in repository:
-            repo_remote=repository['remote']
+            repo_remote = repository['remote']
         else:
-            repo_remote='lmodroid'
+            repo_remote = 'lmodroid'
 
-        repo_attrib = { "path": repo_target,
-            "remote": repo_remote, "name": repo_name }
+        repo_attrib = {
+            'path': repo_target,
+            'remote': repo_remote,
+            'name': repo_name,
+        }
         if repo_revision is not None:
-            repo_attrib["revision"] = repo_revision
+            repo_attrib['revision'] = repo_revision
         elif repo_remote == 'lineage':
-            repo_attrib["revision"] = get_default_or_supported_revision(repo_name, repo_remote)
+            repo_attrib['revision'] = get_default_or_supported_revision(
+                repo_name, repo_remote
+            )
 
         print('Adding dependency: %s' % repo_name)
-        project = ElementTree.Element("project", attrib = repo_attrib)
+        project = ElementTree.Element('project', attrib=repo_attrib)
         lm.append(project)
 
     indent(lm, 0)
@@ -244,6 +276,7 @@ def add_to_manifest(repositories):
     f = open('.repo/local_manifests/roomservice.xml', 'w')
     f.write(raw_xml)
     f.close()
+
 
 def fetch_dependencies(repo_path):
     print('Looking for dependencies in %s' % repo_path)
@@ -279,7 +312,7 @@ def fetch_dependencies(repo_path):
         fetch_list = []
 
         for dependency in dependencies:
-            dependency["remote"] = "lineage"
+            dependency['remote'] = 'lineage'
             if not is_in_manifest(dependency['target_path']):
                 fetch_list.append(dependency)
                 syncable_repos.append(dependency['target_path'])
@@ -305,59 +338,81 @@ def fetch_dependencies(repo_path):
     for deprepo in verify_repos:
         fetch_dependencies(deprepo)
 
+
 def has_branch(branches, revision):
     return revision in [branch['name'] for branch in branches]
 
+
 def get_default_or_supported_revision(repo_name, repo_remote):
     default_revision = get_default_revision(repo_remote)
-    print("Default revision: %s" % default_revision)
-    print("Checking branch info")
+    print('Default revision: %s' % default_revision)
+    print('Checking branch info')
 
-    githubreq = urllib.request.Request("https://api.github.com/repos/LineageOS/" + repo_name + "/branches")
-    result = json.loads(urllib.request.urlopen(githubreq, timeout=5).read().decode())
+    githubreq = urllib.request.Request(
+        'https://api.github.com/repos/LineageOS/' + repo_name + '/branches'
+    )
+    result = json.loads(
+        urllib.request.urlopen(githubreq, timeout=5).read().decode()
+    )
     if has_branch(result, default_revision):
         return default_revision
 
-    print("Default revision %s not found in %s. Bailing." % (default_revision, repo_name))
-    print("Branches found:")
+    print(
+        'Default revision %s not found in %s. Bailing.'
+        % (default_revision, repo_name)
+    )
+    print('Branches found:')
     for branch in [branch['name'] for branch in result]:
         print(branch)
     sys.exit()
+
 
 if depsonly:
     repo_path = get_from_manifest(device)
     if repo_path:
         fetch_dependencies(repo_path)
     else:
-        print("Trying dependencies-only mode on a non-existing device tree?")
+        print('Trying dependencies-only mode on a non-existing device tree?')
 
     sys.exit()
 
 else:
     for repository in repositories:
         repo_name = repository['name']
-        if re.match(r"^device_[^_]*_" + device + "$", repo_name):
-            print("Found repository: %s" % repository['name'])
-            
-            manufacturer = repo_name.replace("device_", "").replace("_" + device, "")
-            
+        if re.match(r'^device_[^_]*_' + device + '$', repo_name):
+            print('Found repository: %s' % repository['name'])
+
+            manufacturer = repo_name.replace('device_', '').replace(
+                '_' + device, ''
+            )
+
             default_revision = get_default_revision()
-            print("Default revision: %s" % default_revision)
-            print("Checking branch info")
-            gitlmoreq = urllib.request.Request(repository['_links']['repo_branches'])
+            print('Default revision: %s' % default_revision)
+            print('Checking branch info')
+            gitlmoreq = urllib.request.Request(
+                repository['_links']['repo_branches']
+            )
             add_auth(gitlmoreq)
-            result = json.loads(urllib.request.urlopen(gitlmoreq).read().decode())
+            result = json.loads(
+                urllib.request.urlopen(gitlmoreq).read().decode()
+            )
 
             ## Try tags, too, since that's what releases use
             if not has_branch(result, default_revision):
-                result.extend (repository['tag_list'])
+                result.extend(repository['tag_list'])
 
-            repo_path = "device/%s/%s" % (manufacturer, device)
-            adding = {'repository':repository['path_with_namespace'],'target_path':repo_path}
+            repo_path = 'device/%s/%s' % (manufacturer, device)
+            adding = {
+                'repository': repository['path_with_namespace'],
+                'target_path': repo_path,
+            }
 
             if not has_branch(result, default_revision):
-                print("Default revision %s not found in %s. Bailing." % (default_revision, repo_name))
-                print("Branches found:")
+                print(
+                    'Default revision %s not found in %s. Bailing.'
+                    % (default_revision, repo_name)
+                )
+                print('Branches found:')
                 for branch in [branch['name'] for branch in result]:
                     print(branch)
                 sys.exit()
@@ -366,12 +421,15 @@ else:
 
             add_to_manifest([adding])
 
-            print("Syncing repository to retrieve project.")
+            print('Syncing repository to retrieve project.')
             os.system('repo sync --force-sync %s' % repo_path)
-            print("Repository synced!")
+            print('Repository synced!')
 
             fetch_dependencies(repo_path)
-            print("Done")
+            print('Done')
             sys.exit()
 
-print("Repository for %s not found in the LMODroid Git repository list. If this is in error, you may need to manually add it to your local_manifests/roomservice.xml." % device)
+print(
+    'Repository for %s not found in the LMODroid Git repository list. If this is in error, you may need to manually add it to your local_manifests/roomservice.xml.'
+    % device
+)
