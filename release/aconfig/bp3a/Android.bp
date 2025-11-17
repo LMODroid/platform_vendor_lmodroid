@@ -14,12 +14,12 @@
 // limitations under the License.
 
 aconfig_value_set {
-    name: "aconfig_value_set-lmodroid-bp2a",
+    name: "aconfig_value_set-lmodroid-bp3a",
     values: [
-        "aconfig-values-bp2a-com.android.launcher3-all",
+        "aconfig-values-bp3a-com.android.launcher3-all",
         "aconfig-values-bp2a-com.android.systemui.flags-all",
         "aconfig-values-bp2a-com.android.settingslib.flags-all",
         "aconfig-values-bp2a-com.android.settingslib.widget.theme.flags-all",
-        "aconfig-values-bp2a-com.android.wm.shell-all",
+        "aconfig-values-bp3a-com.android.wm.shell-all",
     ],
 }
