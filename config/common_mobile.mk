@@ -111,9 +111,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     media.recorder.show_manufacturer_and_model=true
 
+ifneq ($(TARGET_WITHOUT_PREBUILT_APPS),true)
 # OrganicMaps
 PRODUCT_PACKAGES += \
     OrganicMaps
+endif
 
 # SystemUI plugins
 PRODUCT_PACKAGES += \
