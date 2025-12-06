@@ -941,6 +941,10 @@ function get_lineage_version() {
 }
 
 function build_kernel() {
+    if [[ "${SKIP_KERNEL_BUILD}" == "true" || "${SKIP_KERNEL_BUILD}" == "1" ]]; then
+        echo "Skipping kernel build"
+        return
+    fi
     local lineage_version=$(get_lineage_version)
     if [ $? -ne 0 ]; then
         echo "Unable to determine LineageOS version, cannot build kernel"
