@@ -9,40 +9,40 @@ PRODUCT_BRAND ?= LMODroid
 include $(CUSTOMER_VENDOR_DIR)/build/config.mk
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     ro.com.google.clientidbase=android-google
 else
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
 ifeq ($(PRODUCT_IS_ATV),true)
 ifeq ($(PRODUCT_ATV_CLIENTID_BASE),)
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     ro.oem.key1=ATV00100020
 else
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     ro.oem.key1=$(PRODUCT_ATV_CLIENTID_BASE)
 endif
 endif
 
 ifeq ($(TARGET_BUILD_VARIANT),eng)
 # Disable ADB authentication
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=0
+PRODUCT_PRODUCT_PROPERTIES += ro.adb.secure=0
 else
 ifdef WITH_ADB_INSECURE
 # Forcebly disable ADB authentication
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=0
+PRODUCT_PRODUCT_PROPERTIES += ro.adb.secure=0
 else
 # Enable ADB authentication
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=1
+PRODUCT_PRODUCT_PROPERTIES += ro.adb.secure=1
 
 # Set ro.debuggable=0 for userdebug
 PRODUCT_NOT_DEBUGGABLE_IN_USERDEBUG := true
 endif
 
 # Disable extra StrictMode features on all non-engineering builds
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
+PRODUCT_PRODUCT_PROPERTIES += persist.sys.strictmode.disable=true
 endif
 
 # Backup Tool
@@ -66,11 +66,11 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/bin/backuptool_ab.functions \
     system/bin/backuptool_postinstall.sh
 
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     ro.ota.allow_downgrade=true
 endif
 else
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     lmodroid.updater.allow_major_update=true
 endif
 
@@ -103,11 +103,11 @@ PRODUCT_PACKAGES += \
     lmodroid-component-overrides.xml
 
 # Enforce privapp-permissions whitelist
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     ro.control_privapp_permissions=enforce
 
 # Support many users/work profiles
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.max_profiles?=16 \
     fw.max_users=32
 
@@ -320,7 +320,7 @@ PRODUCT_PACKAGES += \
     LMOStats
 
 # Storage manager
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     ro.storage_manager.enabled=true
 
 # These packages are excluded from user builds
@@ -371,22 +371,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 # ART
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     pm.dexopt.boot=verify \
     pm.dexopt.first-boot=verify \
     pm.dexopt.install=speed-profile \
     pm.dexopt.bg-dexopt=everything
 
 ifneq ($(AB_OTA_PARTITIONS),)
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     pm.dexopt.ab-ota=verify
 endif
 
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     dalvik.vm.systemuicompilerfilter=speed
 
 ifeq ($(TARGET_BUILD_VARIANT),userdebug)
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     debug.sf.enable_transaction_tracing=false
 endif
 

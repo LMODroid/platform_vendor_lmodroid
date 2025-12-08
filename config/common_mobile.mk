@@ -108,7 +108,7 @@ PRODUCT_PACKAGES += \
     FaceUnlockSettingsOverlay
 
 # Media
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     media.recorder.show_manufacturer_and_model=true
 
 ifneq ($(TARGET_WITHOUT_PREBUILT_APPS),true)
