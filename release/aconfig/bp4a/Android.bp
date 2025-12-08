@@ -1,4 +1,5 @@
-// Copyright 2025 Google Inc. All rights reserved.
+//
+// Copyright (C) 2024 The LineageOS Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,10 +13,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-aconfig_values {
-  name: "aconfig-values-bp3a-com.android.wm.shell-all",
-  package: "com.android.wm.shell",
-  srcs: [
-    "*_flag_values.textproto",
-  ]
+aconfig_value_set {
+    name: "aconfig_value_set-lmodroid-bp4a",
+    values: [
+        "aconfig-values-bp4a-com.android.launcher3-all",
+        "aconfig-values-bp2a-com.android.systemui.flags-all",
+        "aconfig-values-bp2a-com.android.settingslib.flags-all",
+        "aconfig-values-bp2a-com.android.settingslib.widget.theme.flags-all",
+        "aconfig-values-bp4a-com.android.wm.shell-all",
+    ],
 }
