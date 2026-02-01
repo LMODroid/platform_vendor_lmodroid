@@ -13,13 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+$(call inherit-product, device/generic/car/sdk_car_arm64.mk)
+
+include device/generic/goldfish/board/kernel/arm64.mk
+
 include vendor/lmodroid/build/target/product/lmodroid_generic_car_target.mk
-
-$(call inherit-product, device/generic/car/emulator/aosp_car_emulator.mk)
-
-$(call inherit-product, $(SRC_TARGET_DIR)/product/sdk.mk)
-
-TARGET_NO_KERNEL_OVERRIDE := true
 
 PRODUCT_NAME := lmodroid_sdk_car_arm64
 
