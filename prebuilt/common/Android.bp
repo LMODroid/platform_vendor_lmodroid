@@ -19,3 +19,8 @@ prebuilt_etc_xml {
     filename_from_src: true,
     sub_dir: "org.fdroid.fdroid",
 }
+
+prebuilt_addon_d {
+    name: "50-lmodroid.sh",
+    src: "bin/50-lmodroid.sh",
+}

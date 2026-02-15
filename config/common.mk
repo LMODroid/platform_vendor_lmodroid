@@ -53,8 +53,10 @@ endif
 ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_COPY_FILES += \
     vendor/lmodroid/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/lmodroid/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/lmodroid/prebuilt/common/bin/50-lmodroid.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-lmodroid.sh
+    vendor/lmodroid/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions
+
+PRODUCT_PACKAGES += \
+    50-lmodroid.sh
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/addon.d/50-lmodroid.sh
