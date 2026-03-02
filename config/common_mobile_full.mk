@@ -3,10 +3,8 @@ $(call inherit-product, vendor/lmodroid/config/common_mobile.mk)
 
 PRODUCT_SIZE := full
 
-# Include {GoogleSansFlex,Lato,Rubik} fonts
+# Include GoogleSansFlex font
 $(call inherit-product-if-exists, external/google-fonts/google-sans-flex/fonts.mk)
-$(call inherit-product-if-exists, external/google-fonts/lato/fonts.mk)
-$(call inherit-product-if-exists, external/google-fonts/rubik/fonts.mk)
 $(call inherit-product-if-exists, external/libremobileos-fonts/AlbertSans/fonts.mk)
 $(call inherit-product-if-exists, external/libremobileos-fonts/Vazirmatn/fonts.mk)
 
@@ -20,8 +18,6 @@ PRODUCT_PACKAGES += \
     fonts_customization.xml \
     FontAlbertSansOverlay \
     FontGoogleSansFlexOverlay \
-    FontLatoOverlay \
-    FontRubikOverlay \
     FontVazirmatnOverlay
 
 # Recorder
