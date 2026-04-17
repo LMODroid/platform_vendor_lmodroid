@@ -191,4 +191,10 @@
     <!-- Component name of the default wallpaper. This will be ImageWallpaper if not
          specified -->
      <string name="default_wallpaper_component" translatable="false">com.libremobileos.dynamicwallpaper/com.libremobileos.dynamicwallpaper.GLWallpaperService</string>
+
+    <!-- Whether to enable glanceable hub features on this device. -->
+    <bool name="config_glanceableHubEnabled">true</bool>
+
+    <!-- Whether glanceable hub is enabled by default. -->
+    <bool name="config_glanceableHubEnabledByDefault">true</bool>
 </resources>

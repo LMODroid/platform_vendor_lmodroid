@@ -48,4 +48,7 @@
 
     <!-- Biometric Dialog values -->
     <integer name="biometric_dialog_text_gravity">1</integer> <!-- CENTER_HORIZONTAL -->
+
+    <!-- Configuration to swipe to open glanceable hub -->
+    <bool name="config_swipeToOpenGlanceableHub">true</bool>
 </resources>
