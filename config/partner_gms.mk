@@ -48,6 +48,7 @@ ifeq ($(WITH_GMS),true)
             #   - mainline_modules_flatten_apex.mk - flatten apex
             #   - mainline_modules_low_ram.mk      - low ram devices
             ifneq ($(MAINLINE_MODULES_MAKEFILE),)
+                MAINLINE_INCLUDE_ALL_OPTIONAL_MODULES ?= true
                 $(call inherit-product, vendor/partner_modules/build/$(MAINLINE_MODULES_MAKEFILE))
             endif
         endif
