@@ -51,7 +51,7 @@ else:
 
 try:
     device = product[product.index('_') + 1 :]
-except:
+except IndexError:
     device = product
 
 if not depsonly:
@@ -69,7 +69,7 @@ try:
         gitlmoauth = authtuple[0]
     else:
         gitlmoauth = None
-except:
+except Exception:
     gitlmoauth = None
 
 
@@ -169,7 +169,7 @@ def get_from_manifest(devicename):
     try:
         lm = ElementTree.parse('.repo/local_manifests/roomservice.xml')
         lm = lm.getroot()
-    except:
+    except Exception:
         lm = ElementTree.Element('manifest')
 
     for localpath in lm.findall('project'):
@@ -183,7 +183,7 @@ def is_in_manifest(projectpath):
     try:
         lm = ElementTree.parse('.repo/local_manifests/roomservice.xml')
         lm = lm.getroot()
-    except:
+    except Exception:
         lm = ElementTree.Element('manifest')
 
     for localpath in lm.findall('project'):
@@ -195,7 +195,7 @@ def is_in_manifest(projectpath):
     try:
         lm = ElementTree.parse('.repo/manifests/snippets/remove.xml')
         lm = lm.getroot()
-    except:
+    except Exception:
         lm = ElementTree.Element('manifest')
 
     for localpath in lm.findall('remove-project'):
@@ -205,7 +205,7 @@ def is_in_manifest(projectpath):
     try:
         lm = ElementTree.parse(get_manifest_path())
         lm = lm.getroot()
-    except:
+    except Exception:
         lm = ElementTree.Element('manifest')
 
     for localpath in lm.findall('project'):
@@ -219,7 +219,7 @@ def is_in_manifest(projectpath):
     try:
         lm = ElementTree.parse('.repo/manifests/snippets/lmodroid.xml')
         lm = lm.getroot()
-    except:
+    except Exception:
         lm = ElementTree.Element('manifest')
 
     for localpath in lm.findall('project'):
@@ -236,7 +236,7 @@ def add_to_manifest(repositories):
     try:
         lm = ElementTree.parse('.repo/local_manifests/roomservice.xml')
         lm = lm.getroot()
-    except:
+    except Exception:
         lm = ElementTree.Element('manifest')
 
     for repository in repositories:
