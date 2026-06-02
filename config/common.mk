@@ -417,6 +417,7 @@ PRODUCT_PACKAGE_OVERLAYS += \
 
 PRODUCT_PACKAGES += \
     DocumentsUIOverlay \
+    LMODroidFrameworksOverlay \
     NetworkStackOverlay \
     NetworkStackMainlineOverlay \
     PermissionControllerOverlay
