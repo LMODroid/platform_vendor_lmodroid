@@ -7,7 +7,7 @@ soong_config_module_type {
 }
 
 bootanimation_aconfig_values {
-    name: "aconfig-values-lmodroid-bp4a-com.android.graphics.bootanimation.flags-all",
+    name: "aconfig-values-lmodroid-cp2a-com.android.graphics.bootanimation.flags-all",
     package: "com.android.graphics.bootanimation.flags",
     srcs: [],
     soong_config_variables: {
