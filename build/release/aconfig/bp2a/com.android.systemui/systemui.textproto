@@ -193,3 +193,10 @@ flag_value {
   state: ENABLED
   permission: READ_ONLY
 }
+
+flag_value {
+  package: "com.android.systemui"
+  name: "fix_shade_header_wrong_icon_size"
+  state: ENABLED
+  permission: READ_ONLY
+}
