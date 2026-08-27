@@ -933,6 +933,9 @@ function get_lineage_version() {
         7.0)
             echo "lineage-23.0"
             ;;
+        7.2)
+            echo "lineage-23.2"
+            ;;
         *)
             echo "Unsupported LMODroid version: $lmodroid_version"
             return 1
