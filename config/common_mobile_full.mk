@@ -5,8 +5,6 @@ PRODUCT_SIZE := full
 
 # Include GoogleSansFlex font
 $(call inherit-product-if-exists, external/google-fonts/google-sans-flex/fonts.mk)
-$(call inherit-product-if-exists, external/libremobileos-fonts/AlbertSans/fonts.mk)
-$(call inherit-product-if-exists, external/libremobileos-fonts/Vazirmatn/fonts.mk)
 
 # Extra cmdline tools
 PRODUCT_PACKAGES += \
@@ -16,9 +14,7 @@ PRODUCT_PACKAGES += \
 # Fonts
 PRODUCT_PACKAGES += \
     fonts_customization.xml \
-    FontAlbertSansOverlay \
-    FontGoogleSansFlexOverlay \
-    FontVazirmatnOverlay
+    FontGoogleSansFlexOverlay
 
 # Recorder
 PRODUCT_PACKAGES += \
