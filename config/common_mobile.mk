@@ -4,6 +4,7 @@ $(call inherit-product, vendor/lmodroid/config/common.mk)
 # Apps
 PRODUCT_PACKAGES += \
     AvatarPicker \
+    Gallery2 \
     Glimpse \
     LatinIME
 
