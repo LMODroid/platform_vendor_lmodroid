@@ -34,15 +34,15 @@ PRODUCT_PACKAGES += \
 endif
 
 # DesktopMode
-ifneq ($(TARGET_WITHOUT_DESKTOPMODE), true)
-PRODUCT_PACKAGES += \
-    DesktopMode
+# ifneq ($(TARGET_WITHOUT_DESKTOPMODE), true)
+# PRODUCT_PACKAGES += \
+#     DesktopMode
 
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.freeform_window_management.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.freeform_window_management.xml
+# PRODUCT_COPY_FILES += \
+#     frameworks/native/data/etc/android.software.freeform_window_management.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.freeform_window_management.xml
 
-$(call inherit-product-if-exists, packages/services/VncFlinger/product.mk)
-endif
+# $(call inherit-product-if-exists, packages/services/VncFlinger/product.mk)
+# endif
 
 # Dynamic Wallpaper
 PRODUCT_PACKAGES += \
