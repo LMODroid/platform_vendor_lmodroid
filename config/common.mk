@@ -240,6 +240,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # System apps
 PRODUCT_PACKAGES += \
+    ANGLE \
     Camelot \
     Etar \
     GameSpace \
