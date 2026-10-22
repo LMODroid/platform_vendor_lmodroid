@@ -7,7 +7,6 @@
     </privapp-permissions>
 
     <privapp-permissions package="com.android.settings">
-        <permission name="com.android.permission.MANAGE_APP_LOCK" />
         <permission name="com.android.permission.MANAGE_PARALLEL_SPACES"/>
 
         <permission name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS" />
