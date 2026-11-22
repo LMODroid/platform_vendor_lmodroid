@@ -37,6 +37,9 @@
     <!-- Action name for the styles & wallpaper picker activity. -->
     <string name="config_styles_and_wallpaper_picker_action" translatable="false">android.intent.action.SET_WALLPAPER</string>
 
+    <!-- Whether SIM Specific Ringtone should be shown or not. -->
+    <bool name="config_show_sim_specific_ringtone">true</bool>
+
     <!-- Whether to show the "glanceable hub" settings on mobile. -->
     <bool name="config_show_glanceable_hub_toggle_setting_mobile">true</bool>
 </resources>
