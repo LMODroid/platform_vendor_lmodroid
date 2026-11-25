@@ -1,6 +1,10 @@
 # Inherit common mobile LMODroid stuff
 $(call inherit-product, vendor/lmodroid/config/common.mk)
 
+# Credential storage
+PRODUCT_PACKAGES += \
+    android.software.credentials.prebuilt.xml
+
 # Apps
 PRODUCT_PACKAGES += \
     AvatarPicker \
