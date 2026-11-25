@@ -5,6 +5,11 @@ $(call inherit-product, vendor/lmodroid/config/common.mk)
 PRODUCT_PACKAGES += \
     android.software.credentials.prebuilt.xml
 
+# SystemUI (TV and car bring their own)
+PRODUCT_PACKAGES += \
+    LMOSystemUI \
+    LMOSystemUIClock
+
 # Apps
 PRODUCT_PACKAGES += \
     AvatarPicker \

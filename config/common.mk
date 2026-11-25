@@ -372,10 +372,6 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     CarSystemUI \
     SystemUI
 
-PRODUCT_PACKAGES += \
-    LMOSystemUI \
-    LMOSystemUIClock
-
 ifeq ($(TARGET_SUPPORTS_64_BIT_APPS), true)
 # Use 64-bit dex2oat for better dexopt time.
 PRODUCT_PROPERTY_OVERRIDES += \
