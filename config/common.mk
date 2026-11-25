@@ -160,36 +160,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     framework_compatibility_matrix.lineage.xml
 
-# Backgrounds (not on TV: no wallpaper picker there)
-ifeq ($(PRODUCT_IS_ATV),)
-PRODUCT_PACKAGES += \
-    Backgrounds
-endif
-
 # Updater
 PRODUCT_PACKAGES += \
     Updater
 
 PRODUCT_COPY_FILES += \
     vendor/lmodroid/prebuilt/common/etc/init/init.lmodroid-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.lmodroid-updater.rc
-
-# Panic (the power menu's panic button; not on TV)
-ifeq ($(PRODUCT_IS_ATV),)
-PRODUCT_PACKAGES += \
-    Ripple
-endif
-
-# Prebuilt apps
-ifneq ($(TARGET_WITHOUT_PREBUILT_APPS),true)
-
-ifeq ($(PRODUCT_IS_ATV),)
-PRODUCT_PACKAGES += \
-    Gramophone \
-    Jellyfish \
-    NumberHub
-endif
-
-endif
 
 # F-Droid
 ifneq ($(WITH_GMS),true)
@@ -242,17 +218,8 @@ PRODUCT_PACKAGES += \
     ANGLE \
     Seedvault
 
-# Phone and tablet apps: no camera, touch UI or multi-window on TV
-ifeq ($(PRODUCT_IS_ATV),)
-PRODUCT_PACKAGES += \
-    Camelot \
-    Etar \
-    GameSpace \
-    LMOFreeform \
-    LMOFreeformSidebar \
-    ParallelSpace \
-    Recorder
-
+# Camera: here, not in common_mobile.mk, which is read before this file sets PRODUCT_NO_CAMERA
+ifeq ($(PRODUCT_IS_ATV)$(PRODUCT_IS_AUTOMOTIVE),)
 ifneq ($(PRODUCT_NO_CAMERA),true)
 PRODUCT_PACKAGES += \
     Aperture

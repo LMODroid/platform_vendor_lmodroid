@@ -13,9 +13,18 @@ PRODUCT_PACKAGES += \
 # Apps
 PRODUCT_PACKAGES += \
     AvatarPicker \
+    Backgrounds \
+    Camelot \
     Canvas \
+    Etar \
+    GameSpace \
     Glimpse \
-    LatinIME
+    LatinIME \
+    LMOFreeform \
+    LMOFreeformSidebar \
+    ParallelSpace \
+    Recorder \
+    Ripple
 
 ifeq ($(PRODUCT_TYPE), go)
 PRODUCT_PACKAGES += \
@@ -88,9 +97,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     media.recorder.show_manufacturer_and_model=true
 
+# Prebuilt apps
 ifneq ($(TARGET_WITHOUT_PREBUILT_APPS),true)
-# OrganicMaps
 PRODUCT_PACKAGES += \
+    Gramophone \
+    Jellyfish \
+    NumberHub \
     OrganicMaps
 endif
 
