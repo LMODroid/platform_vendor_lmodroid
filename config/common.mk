@@ -160,9 +160,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     framework_compatibility_matrix.lineage.xml
 
-# Backgrounds
+# Backgrounds (not on TV: no wallpaper picker there)
+ifeq ($(PRODUCT_IS_ATV),)
 PRODUCT_PACKAGES += \
     Backgrounds
+endif
 
 # Updater
 PRODUCT_PACKAGES += \
@@ -171,18 +173,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/lmodroid/prebuilt/common/etc/init/init.lmodroid-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.lmodroid-updater.rc
 
-# Panic
+# Panic (the power menu's panic button; not on TV)
+ifeq ($(PRODUCT_IS_ATV),)
 PRODUCT_PACKAGES += \
     Ripple
+endif
 
 # Prebuilt apps
 ifneq ($(TARGET_WITHOUT_PREBUILT_APPS),true)
 
-PRODUCT_PACKAGES += \
-    Gramophone
-
 ifeq ($(PRODUCT_IS_ATV),)
 PRODUCT_PACKAGES += \
+    Gramophone \
     Jellyfish \
     NumberHub
 endif
@@ -238,18 +240,23 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # System apps
 PRODUCT_PACKAGES += \
     ANGLE \
+    Seedvault
+
+# Phone and tablet apps: no camera, touch UI or multi-window on TV
+ifeq ($(PRODUCT_IS_ATV),)
+PRODUCT_PACKAGES += \
     Camelot \
     Etar \
     GameSpace \
     LMOFreeform \
     LMOFreeformSidebar \
     ParallelSpace \
-    Recorder \
-    Seedvault
+    Recorder
 
 ifneq ($(PRODUCT_NO_CAMERA),true)
 PRODUCT_PACKAGES += \
     Aperture
+endif
 endif
 
 # TouchGestures
